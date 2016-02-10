@@ -6,8 +6,29 @@ blockquote{
   padding: 10px;10px;10px;10px;
   text-align: center;
   border-color: white;
+  overflow: hidden;
 }
 .centered{
   width: 500px;
 margin:0 auto;
+}
+#wrapper{
+  min-width: 500px;
+  width :75%;
+  margin: auto;
+  background: Yellow;
+}
+#content{
+  background: indigo;
+  float: left;
+  width: 70%  ;
+}
+aside{
+  background: red;
+  float: left;
+  width: 30%;
+}
+aside ul{
+  list-style: none;
+  padding-left: 0;
 }
