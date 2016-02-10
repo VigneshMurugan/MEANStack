@@ -14,7 +14,7 @@ margin:0 auto;
 }
 #wrapper{
   min-width: 500px;
-  width :75%;
+  width :80%;
   margin: auto;
   background: Yellow;
 }
@@ -31,4 +31,17 @@ aside{
 aside ul{
   list-style: none;
   padding-left: 0;
+}
+#navigationList li{
+  display: inline;
+  list-style: none;
+  padding-left: 10px;
+}
+#navigationList a{
+  text-decoration: none;
+}
+#navigationList a:hover{
+  text-decoration: underline;
+  cursor: grabbing;
+  color: black;
 }
