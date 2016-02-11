@@ -58,7 +58,7 @@
     padding: 10px 10px;
     transition: 0.5s ease;
   }
-  section a p , section a h1 , section a h2 {
+  section a p ,section a header , section a h1 , section a h2 {
       margin: 5px 10px;
       line-height: 200%
   }
@@ -70,7 +70,7 @@
     color: white;
     transition: 0.5s ease;
   }
-  section:hover a header,section:hover a p{
+  section:hover a header,section:hover a p ,section:hover a h1 , section:hover a h2{
     color: white;
   }
   .content_img{
@@ -254,3 +254,18 @@
 50%{opacity: 0;}
 100%{opacity: 1;}
 }
+
+.playerImage
+{
+   position: relative;
+   top: 40%;
+   left: 10%;
+   width: 220px;
+   height: 285px;
+ }
+
+ .playerPortfolio
+ {
+   width: 880px;
+   height : 1000px;
+ }
