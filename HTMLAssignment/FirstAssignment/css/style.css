@@ -1,6 +1,6 @@
   body{
     background-image: url("../img/site_background.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
   }
   .logo_container{
     width: 100%;
@@ -28,20 +28,24 @@
     font-family: sans-serif;
     color: white;
   }
-  nav a:after {
-    content: '';
-    width: 0;
-    display: block;
-    text-decoration: none;
-    border-bottom: 1px solid red;
-    transition: 0.5s ease;
-  }
   nav a:hover{
-    color: lightblue;
-    transition: 0.5s ease;
+    text-decoration: none;
+    color: #80e1ff;
+  }
+  nav a:after {
+  	content: '';
+  	display: block;
+  	margin: auto;
+  	height: 3px;
+  	width: 0px;
+  	background: transparent;
+    color: blue;
+      transition: 0.5s ease, background-color .5s ease;
   }
   nav a:hover:after {
-    width: 100%;
+  	width: 100%;
+  	background: red;
+    color: blue;
   }
   .main_content{
     position: relative;
@@ -73,7 +77,8 @@
   }
   .content_img{
     max-width: 100%;
-    background-size: cover; }
+    background-size: cover;
+  }
   section a:visited
   {
     color: darkblue;
@@ -141,4 +146,4 @@
     100%{
       opacity : 1
     }
-  }
+}
