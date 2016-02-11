@@ -60,7 +60,8 @@
   }
   section a p ,section a header , section a h1 , section a h2 {
       margin: 5px 10px;
-      line-height: 200%
+      line-height: 150%;
+      letter-spacing: 150%;
   }
   section a{
     text-decoration: none;
