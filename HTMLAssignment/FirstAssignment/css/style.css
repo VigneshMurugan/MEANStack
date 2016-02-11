@@ -1,0 +1,144 @@
+  body{
+    background-image: url("../img/site_background.jpg");
+    background-repeat: no-repeat;
+  }
+  .logo_container{
+    width: 100%;
+  }
+  #navigation_menu{
+    position: relative;
+    top : 10px;
+    right :5px;
+    padding: 0px;
+    display: block;
+    width: 100%;
+    text-align: right;
+    background: #000813;
+    background: -webkit-linear-gradient(-60deg, #0535A7, #000813);
+    background: -o-linear-gradient(-60deg, #0535A7, #000813);
+    background: -moz-linear-gradient(-60deg, #0535A7, #000813);
+    background: linear-gradient(-60deg, #0535A7, #000813);
+    background-blend-mode: screen;;
+    y-axis : -9999;
+  }
+  nav a{
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    font-family: sans-serif;
+    color: white;
+  }
+  nav a:after {
+    content: '';
+    width: 0;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid red;
+    transition: 0.5s ease;
+  }
+  nav a:hover{
+    color: lightblue;
+    transition: 0.5s ease;
+  }
+  nav a:hover:after {
+    width: 100%;
+  }
+  .main_content{
+    position: relative;
+    top : 0px;
+    right :0px;
+    padding: 0px;
+    word-wrap: break-word;
+    margin: 12px 10px;
+    background-color: white;
+  }
+  section
+  {
+    padding: 10px 10px;
+    transition: 0.5s ease;
+  }
+  section a p , section a header {
+      margin: 5px 10px;
+  }
+  section a{
+    text-decoration: none;
+  }
+  section:hover{
+    background: darkblue;
+    color: white;
+    transition: 0.5s ease;
+  }
+  section:hover a header,section:hover a p{
+    color: white;
+  }
+  .content_img{
+    max-width: 100%;
+    background-size: cover; }
+  section a:visited
+  {
+    color: darkblue;
+    text-decoration: none;
+  }
+
+
+ #hero_text{
+      z-index:100;
+      position:absolute;
+      color:white;
+      font-size:24px;
+      font-weight:bold;
+      left:20%;
+      top:560px;
+      margin-right: auto;
+      margin-bottom: : auto;
+      align-items: center;
+      font-family: "ABC";
+      font-size: 50px;
+      color: darkblue;
+      text-shadow: 20px 10px 10px black;
+      -webkit-animation : fadeIn 4s infinite;
+      -webkit-animation-direction : alternate;
+      animation : fadeIn 4s infinite;
+      animation-direction : alternate;
+  }
+
+  @font-face {
+    font-family: "ABC";
+    src: url("../fonts/Precious.ttf");
+  }
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.25;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  75%{
+    opacity: 0.75;
+  }
+  100%{
+    opacity : 1
+  }
+}
+
+  @-webkit-keyframes fadeIn {
+    0%{
+      opacity: 0;
+    }
+    25%{
+      opacity: 0.25;
+    }
+    50%{
+      opacity: 0.5;
+    }
+    75%{
+      opacity: 0.75;
+    }
+    100%{
+      opacity : 1
+    }
+  }
