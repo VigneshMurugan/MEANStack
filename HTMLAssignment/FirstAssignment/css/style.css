@@ -2,8 +2,90 @@ body{
   background-image: url("../img/site_background.jpg");
   background-repeat: repeat-y;
 }
-.logo_container{
+nav a , footer li a{
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  font-family: sans-serif;
+  color: white;
+}
+nav a:hover{
+  color: #80e1ff;
+}
+nav a:after{
+  content: '';
+  display: block;
+  margin: auto;
+  height: 1px;
+  width: 0px;
+}
+nav a:hover:after{
   width: 100%;
+  background: red;
+  transition: 0.5s ease;
+  background-color: .5s ease;
+}
+section{
+  position: relative;
+  margin: 10px 10px;
+  padding: 10px 10px;
+  transition: 0.5s ease;
+}
+section a header , section a h1 , h2{
+  margin: 5px 5px;
+  align-items: center;
+  line-height: 150%;
+  letter-spacing: 150%;
+}
+div header h1,div p{
+  margin : 15px 10px;
+  line-height: 150%;
+  letter-spacing: 150%;
+}
+section a p {
+  margin: 10px 10px;
+}
+section a{
+  text-decoration: none;
+}
+section:hover a header,section:hover a p ,section:hover a h1 , section:hover a h2{
+  color: white;
+}
+/* to avoid colour change of section contents */
+section a:visited{
+  color: darkblue;
+  text-decoration: none;
+}
+header h3{
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+footer
+{
+  height:100px;
+  text-align: right;
+  background: #000813;
+  background: -webkit-linear-gradient(-60deg, #0535A7, #000813);
+  background: -o-linear-gradient(-60deg, #0535A7, #000813);
+  background: -moz-linear-gradient(-60deg, #0535A7, #000813);
+  background: linear-gradient(-60deg, #0535A7, #000813);
+}
+footer ul li{
+  list-style: none;
+  display: inline;
+  width :30px;
+  position: relative;
+  padding: 5px 5px;
+}
+footer ul li img{
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 10px 5px;
 }
 #navigation_menu{
   position: relative;
@@ -19,98 +101,6 @@ body{
   background: -moz-linear-gradient(-60deg, #0535A7, #000813);
   background: linear-gradient(-60deg, #0535A7, #000813);
 }
-nav a , footer li a{
-  text-decoration: none;
-  padding: 10px;
-  display: inline-block;
-  font-family: sans-serif;
-  color: white;
-}
-nav a:hover{
-  text-decoration: none;
-  color: #80e1ff;
-}
-nav a:after{
-  content: '';
-  display: block;
-  margin: auto;
-  height: 1px;
-  width: 0px;
-}
-nav a:hover:after{
-  width: 100%;
-  background: red;
-  color: blue;
-  transition: 0.5s ease;
-  background-color .5s ease;
-}
-.main_content{
-  position: relative;
-  top : 6px;
-  right :0px;
-  padding: 0px;
-  word-wrap: break-word;
-  margin: 12px 10px;
-  background-color: white;
-}
-section
-{
-  position: relative;
-  margin: 10px 10px;
-  padding: 10px 10px;
-  transition: 0.5s ease;
-}
-p,section a header , section a h1 , section a h2 , section header h2{
-  margin: 5px 5px;
-  align-items: center;
-  line-height: 150%;
-  letter-spacing: 150%;
-}
-.playerTitle
-{
-  position: relative;
-  margin: 5px 5px;
-  color: white;
-}
-.content_img{
-  width: 100%;
-}
-div header h1,div p{
-  margin : 15px 10px;
-  line-height: 150%;
-  letter-spacing: 150%;
-}
-section a p {
-  margin: 10px 10px;
-}
-section a{
-  text-decoration: none;
-}
-section:hover{
-  background: darkblue;
-  color: white;
-  transition: 0.5s ease;
-}
-section:hover a header,section:hover a p ,section:hover a h1 , section:hover a h2{
-  color: white;
-}
-.content_img{
-  max-width: 100%;
-  max-height: 100%;
-  background-size: cover;
-  object-fit: fill;
-}
-section a:visited /* to avoid colour change of section contents */
-{
-  color: darkblue;
-  text-decoration: none;
-}
-
-.animatedImage{
-  margin : auto;
-  align-items: center;
-}
-
 #hero_text{
   z-index:100;
   position:absolute;
@@ -164,9 +154,9 @@ section a:visited /* to avoid colour change of section contents */
 .playerImage
 {
   position: relative;
-  top: 40%;
-  left: 10%;
-  width: 220px;
+  top: 30%;
+  left: 0px;
+  width: 150px;
   height: 285px;
 }
 
@@ -175,28 +165,36 @@ section a:visited /* to avoid colour change of section contents */
   width: 880px;
   height : 1000px;
 }
-footer
-{
-  height:100px;
-  text-align: right;
-  background: #000813;
-  background: -webkit-linear-gradient(-60deg, #0535A7, #000813);
-  background: -o-linear-gradient(-60deg, #0535A7, #000813);
-  background: -moz-linear-gradient(-60deg, #0535A7, #000813);
-  background: linear-gradient(-60deg, #0535A7, #000813);
+
+.content_img{
+  max-width: 100%;
+  max-height: 100%;
+  background-size: cover;
+  object-fit: fill;
 }
-footer li{
-  list-style: none;
-  display: inline;
-  width :30px;
+.main_content{
   position: relative;
-  padding: 5px 5px;
+  top : 6px;
+  right :0px;
+  padding: 0px;
+  margin: 12px 10px;
+  background-color: white;
 }
-footer li img{
-  width: 20px;
-  height: 20px;
-  margin: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 10px 5px;
+.playerTitle
+{
+  position: relative;
+  margin: 5px 5px;
+  color: white;
+}
+.content_img{
+  width: 100%;
+}
+.hover_highlight:hover{
+  background: darkblue;
+  color: white;
+  transition: 0.5s ease;
+}
+.clickableparagraph{
+    margin-top: 30px;
+    margin-bottom: auto;
 }
