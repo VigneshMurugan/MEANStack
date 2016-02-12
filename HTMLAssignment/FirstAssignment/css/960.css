@@ -52,6 +52,10 @@ body {
   margin-right: 10px;
 }
 
+.grid_8{
+  color: darkblue;
+}
+
 .push_1, .pull_1,
 .push_2, .pull_2,
 .push_3, .pull_3,
