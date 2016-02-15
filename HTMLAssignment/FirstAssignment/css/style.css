@@ -2,45 +2,53 @@ body{
   background-image: url("../img/site_background.jpg");
   background-repeat: repeat-y;
 }
-nav a , footer li a{
+nav a , footer ul li a{
   text-decoration: none;
   padding: 10px;
   display: inline-block;
   font-family: sans-serif;
   color: white;
 }
-nav a:hover{
-  color: #80e1ff;
+aside{
+  float: left;
 }
-nav a:after{
+
+/* Navigation Bar Animation*/
+nav a:hover{
+  color: darkblue;
+}
+nav a:after {
   content: '';
   display: block;
   margin: auto;
   height: 1px;
   width: 0px;
 }
-nav a:hover:after{
-  width: 100%;
+nav a:hover:after ,  footer ul li a:hover:after{
+  width: 80%;
   background: red;
+  box-shadow: 0px -5px 30px 20px white;
   transition: 0.5s ease;
   background-color: .5s ease;
 }
+
+
 section{
   position: relative;
   margin: 10px 10px;
   padding: 10px 10px;
   transition: 0.5s ease;
 }
-section a header , section a h1 , h2{
+
+section a header , section a h1 , h2 , div header h1,div p{
   margin: 5px 5px;
   align-items: center;
   line-height: 150%;
   letter-spacing: 150%;
 }
+
 div header h1,div p{
   margin : 15px 10px;
-  line-height: 150%;
-  letter-spacing: 150%;
 }
 section a p {
   margin: 10px 10px;
@@ -67,10 +75,10 @@ footer
   height:100px;
   text-align: right;
   background: #000813;
-  background: -webkit-linear-gradient(-60deg, #0535A7, #000813);
-  background: -o-linear-gradient(-60deg, #0535A7, #000813);
-  background: -moz-linear-gradient(-60deg, #0535A7, #000813);
-  background: linear-gradient(-60deg, #0535A7, #000813);
+  background: -webkit-linear-gradient(-60deg, #0535A7, #000813); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-60deg, #0535A7, #000813); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-60deg, #0535A7, #000813); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-60deg, #0535A7, #000813); /* Standard syntax */
 }
 footer ul li{
   list-style: none;
@@ -96,11 +104,13 @@ footer ul li img{
   width: 100%;
   text-align: right;
   background: #000813;
-  background: -webkit-linear-gradient(-60deg, #0535A7, #000813);
-  background: -o-linear-gradient(-60deg, #0535A7, #000813);
-  background: -moz-linear-gradient(-60deg, #0535A7, #000813);
-  background: linear-gradient(-60deg, #0535A7, #000813);
+  background: -webkit-linear-gradient(-60deg, #0535A7, #000813); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-60deg, #0535A7, #000813);  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-60deg, #0535A7, #000813); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-60deg, #0535A7, #000813);  /* Standard syntax */
 }
+
+/* Hero Unit Animation */
 #hero_text{
   z-index:100;
   position:absolute;
@@ -108,7 +118,7 @@ footer ul li img{
   font-size:24px;
   font-weight:bold;
   left:20%;
-  top:560px;
+  top:80%;
   margin-right: auto;
   margin-bottom: : auto;
   align-items: center;
@@ -197,4 +207,7 @@ footer ul li img{
 .clickableparagraph{
     margin-top: 30px;
     margin-bottom: auto;
+}
+.hero_unit_img{
+  height: 500px;
 }
