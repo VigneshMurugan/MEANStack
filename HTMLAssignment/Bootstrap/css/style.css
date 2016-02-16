@@ -1,0 +1,30 @@
+body{
+  background-image: url("../img/site_background.jpg");
+}
+#link_container,#myAccount_Dropdown{
+  margin-top: 50px;
+}
+#link_container > li > a , #myAccount_Dropdown > li > a{
+  color: white;
+  transition: 0.5s ease;
+  background-color: rgba(0,0,0,0);
+}
+#link_container > li > a:after , #myAccount_Dropdown > li > a:after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 1px;
+  width: 0px;
+}
+#link_container > li > a:hover:after , #myAccount_Dropdown > li > a:hover:after  {
+  width: 80%;
+  background: red;
+  transition: 0.5s ease;
+  background-color: .5s ease;
+}
+#siteSearchElement{
+  margin-top: 50px;
+}
+.dropdown-menu{
+  position: relative;
+}
