@@ -1,30 +1,159 @@
 body{
   background-image: url("../img/site_background.jpg");
+  color: white;
 }
-#link_container,#myAccount_Dropdown{
-  margin-top: 50px;
+#navigationBar{
+  background-color: rgba(0,0,0,0);
 }
-#link_container > li > a , #myAccount_Dropdown > li > a{
+#link_container,#myAccount_Dropdown,#playerProfile-Dropdown,#siteSearchElement{
+  margin-top: 10px;
+}
+#playerProfile-Dropdown{
+  background-color: rgb(1,35,72);
+}
+.sub-menu{
+  text-decoration: none;
+}
+#link_container > li > a , #myAccount_Dropdown > li > a, #playerProfile-Dropdown > li > a{
   color: white;
   transition: 0.5s ease;
   background-color: rgba(0,0,0,0);
 }
-#link_container > li > a:after , #myAccount_Dropdown > li > a:after {
+#link_container > li > a:after , #playerProfile-Dropdown > li > a:after {
   content: '';
   display: block;
   margin: auto;
   height: 1px;
   width: 0px;
 }
-#link_container > li > a:hover:after , #myAccount_Dropdown > li > a:hover:after  {
+
+#searchInput{
   width: 80%;
-  background: red;
-  transition: 0.5s ease;
-  background-color: .5s ease;
 }
-#siteSearchElement{
-  margin-top: 50px;
+#default_carousel{
+  margin-top: 150px;
 }
-.dropdown-menu{
-  position: relative;
+#default_carousel .item{
+  height: 400px;
+  max-width: 100%;
+  background-size: contain;
+}
+#slide1{
+  background: url("../img/carousel_slide1.jpg") top center no-repeat;
+}
+#slide2{
+  background: url("../img/carousel_slide2.jpg") top center no-repeat;
+}
+#slide3{
+  background: url("../img/carousel_slide3.jpg") top center no-repeat;
+}
+#siteSearchElement > button{
+  padding-left: 8px;
+}
+#stunningGoals,#winningmoments,#chelseaLife{
+  background: url("../img/stunning_goal.gif") no-repeat;
+  background-size: cover;
+  height: 260px;
+}
+#winningmoments{
+  background: url("../img/winning_moment.gif") no-repeat;
+  background-size: cover;;
+}
+#chelseaLife{
+  background: url("../img/team_morale.gif") no-repeat;
+  background-size: cover;
+}
+a.list-group-item .list-group-item-text , a.list-group-item .list-group-item-heading{
+  display: inline;
+  color: white;
+  background-color:rgb(1,35,72);
+}
+#heading{
+  color: white;
+  background: rgba(0,0,0,0);
+  margin: 20px 0;
+}
+#heading > div > p{
+  margin-left: 40px;
+}
+#features {
+  text-align: center;
+  color: white;
+}
+.content_img{
+  max-width: 100%;
+  max-height: 100%;
+  background-size: cover;
+}
+.panel ,.panel-heading{
+  background-color: transparent;
+}
+.panel:hover,#heading:hover,.popover,.popover-title{
+  background-color: rgb(1,35,72);
+}
+.btn-warning{
+  background-color: rgb(1,35,56);
+}
+.btn-warning:hover{
+  background-color: green;
+}
+.nav-tabs > li{
+  background-color: transparent;
+}
+.nav-tabs > li.active > a, .nav-tabs > li > a:hover, .nav-tabs > li.active > a:focus{
+  background-color: green;
+  color: white;
+  border-bottom-color: rgb(1,35,72);
+}
+.thumbnail{
+  margin-right: 20px;
+}
+.modal-dialog{
+  margin-top: 10px;
+  background-color: rgb(1,35,72);
+}
+input , .form-control{
+  border: none;
+  border-bottom: 1px solid white;
+  background: none;
+  margin: 5px 0px;
+  color: white;
+  outline: none;
+  padding: 10px
+}
+textarea{
+  border-style: none;
+  border-color: Transparent;
+  overflow: auto;
+  outline: none;
+  resize: none;
+}
+.modal-footer{
+  border-top: none;
+}
+#Comment{
+  text-align: center;
+}
+{
+  background-color: rgb(1,35,72);
+}
+@media (max-width: 768px) {
+  #nav_container{
+    background-color: rgb(1,35,72);
+    width:100%;
+  }
+  #link_container{
+    text-decoration: none;
+  }
+  #navigationBar{
+    background-color: rgb(1,35,72);
+  }
+}
+@media (min-width:768px) {
+  #link_container > li > a:hover:after , #playerProfile-Dropdown > li > a:hover:after  {
+    width: 100%;
+    background: red;
+    transition: 0.5s ease;
+    background-color: .5s ease;
+  }
 }

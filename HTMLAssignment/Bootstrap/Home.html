@@ -1,72 +1,279 @@
-<!dctype html>
+<!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="css/bootstrap.min.css"/>
-  <!-- <link rel="stylesheet" href="css/bootstrap.css"/> -->
 
+  <!-- links  -->
+  <link rel="stylesheet" href="css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/bootstrap-glyphicons.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="img/favicon.ico"/>
+
+  <!-- scripts -->
+  <script src="js/jquery-1.8.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <!-- title -->
+  <title>Chelsea Fan Site | Keep the Blue flag Flying</title>
 </head>
 <body>
-
   <div class="container" id="main_container">
+    <div class="navbar navbar-fixed-top" id ="navigationBar">
 
-    <nav class="navbar navbar-collapse">
-      <div class="container" id = "navbar_container">
-        <div class="navbar-header">
+      <!-- burger-menu is used as the toggle for collapsed navbar content -->
+      <button id="burger-menu" class="navbar-toggle" data-target="#nav_container" data-toggle="collapse" type="button">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-          <a class="navbar-brand" id="site_logo" href="//">
-            <img src="img/cfc_main_logo.png" alt="Chelsea"/>
-          </a>
+      <div id="logo_container">
+        <a class="navbar-brand" id="site_logo" href="http://www.chelseafc.com" target="_blank">
+          <img class="img-responsive" src="img/cfc_main_logo.png" alt="Chelsea"/>
+        </a>
+      </div>
+      <!-- end of log container  -->
 
+      <div class="nav-collapse collapse navbar-responsive-collapse pull-right" id="nav_container">
+        <ul class="nav navbar-nav" id="link_container">
+          <li class="active">
+            <a href="#">About</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Players<span class="caret"></span></a>
+            <ul class="dropdown-menu" id="playerProfile-Dropdown">
+              <li><a class="sub-menu" href="#">Player Details</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form id = "siteSearchElement" class="navbar-form pull-left">
+          <input type="text" class="form-control" placeholder="Search the Site" id="searchInput"/>
+          <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+
+        <ul class="nav navbar-nav pull-right" id="myAccount_Dropdown">
+          <li id= "userlink">
+            <a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- end of nav bar -->
+
+    <div class="carousel slide" id="default_carousel" data-ride="carousel">
+
+      <ol class="carousel-indicators">
+        <li class="active" data-slide-to="0" data-target="#default_carousel"></li>
+        <li data-slide-to="1" data-target="#default_carousel"></li>
+        <li data-slide-to="2" data-target="#default_carousel"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="item active" id="slide1">
+          <div class="carousel-caption" id="caption1">
+            <h4>Blue Devils</h4>
+          </div>
         </div>
 
-        <div class="navbar-collapse collapse navbar-reponsive-collapse" >
-          <ul class="nav navbar-nav" id="link_container">
-            <li class="active">
-              <a href="#">About</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Player Profiles </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#">About</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <div class="item" id="slide2">
+          <div class="carousel-caption">
+            <h4>Hazardous</h4>
+          </div>
+        </div>
 
-          <form id = "siteSearchElement" class="navbar-form pull-left">
-            <input type="text" class="form-control" placeholder="Search the Site" id="searchInput"/>
-            <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-          </form>
-
-          <ul class="nav navbar-nav pull-right" id="myAccount_Dropdown">
-            <li id= "userlink">
-              <a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a>
-            </li>
-          </ul>
-
-
+        <div class="item" id="slide3">
+          <div class="carousel-caption">
+            <h4>Making Every Move Count</h4>
+          </div>
         </div>
       </div>
 
+      <a class="left carousel-control" data-slide="prev" href="#default_carousel"><span class="icon-prev"></span></a>
+      <a class="right carousel-control" data-slide="next" href="#default_carousel"><span class="icon-next"></span></a>
 
-    </nav>
-    <!-- End of Navigation Bar container  -->
-  </div>
-  <!-- end of nav bar -->
+    </div>
+    <!-- end of carousel  -->
 
-  <div class="carousel slide" id="default_carousel">
+    <div class="row" id="callButton">
 
-  </div>
-  <!-- end of carousel  -->
+      <div class="col-12">
+        <div class="well visible-sm well-small">
+          <a class="btn btn-large btn-default btn-block"><span class="glyphicon glyphicon-phone"></span>Call Us To Know more !</a>
+        </div>
 
-  <div class="row" id="">
+        <div class="well" id="heading">
+          <div class="page-header">
+            <h2> The Blue Army <small> Blue Flag always Fly High</small></h2>
+          </div><!-- end page-header -->
 
-  </div>
-  <!--end of row -->
+          <p class="lead"><em>Chelsea Football Club</em> are a professional football club based in Fulham, London, who compete in the Premier League. Founded in 1905, the club's home ground since then has been Stamford Bridge</p>
+        </div><!-- end well -->
 
-</div>
-<!-- end of container -->
-</body>
-</html>
+      </div>
+    </div>
+    <!--end of row -->
+
+    <div class="row" id="features">
+      <article class="col-sm-4 feature article">
+        <section id=panel1 class="panel">
+          <header id="panelHeading1" class="panel-heading">
+            <h3 class="panel-title"> Club History </h3>
+          </header>
+          <div class="carousel slide" data-ride="carousel" data-interval=4500>
+
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-circle" alt="Destined Champions" src="img/club_history_carusel_1.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Modernly Traditional" src="img/club_history_carusel_2.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Winning Hearts and Trophies" src="img/club_history_carusel_3.jpg"/>
+              </div>
+            </div>
+            <div>
+              <p>Chelsea were founded on 10 March 1905 at The Rising Sun pub (now The Butcher's Hook), opposite the present-day main entrance to the ground on Fulham Road</p>
+              <a href="https://en.wikipedia.org/wiki/Chelsea_F.C#History" target="_blank" class="btn btn-warning btn-block">Know more About Us</a>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <article class="col-sm-4 feature article">
+        <section id=panel2 class="panel">
+          <header id="panelHeading2" class="panel-heading">
+            <h3 class="panel-title"> Squad </h3>
+          </header>
+          <div class="carousel slide" data-ride="carousel" data-interval=3000>
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-circle" alt="Destined Champions" src="img/squad_carousel_1.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Modernly Traditional" src="img/squad_carousel_2.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Winning Hearts and Trophies" src="img/squad_carousel_3.jpg"/>
+              </div>
+            </div>
+          </div>
+          <p>Chelsea always has the Reputation of bringing up Players from their Youth Academy. Legends like <em>John Terry ,Didier Drogba</em> and many more have been benifitted by Chelsea Culture</p>
+          <a href="https://en.wikipedia.org/wiki/Chelsea_F.C#Players" target="_blank" class="btn btn-warning btn-block">See the Squad</a>
+        </section>
+      </article>
+
+      <article class="col-sm-4 feature article">
+        <section class="panel">
+          <header class="panel-heading">
+            <h3 class="panel-title"> Club Mechandise </h3>
+          </header>
+          <div>
+            <img class="content_img img-circle" alt="Merchandise" title="Click to know about the Current Squad" src="img/club_merchandise_1.jpg">
+          </div>
+          <p>We offer a wide Range of Club Merchandise for fans like you all over World.<em> We are sure that you'll Fall head over heels</em> after you browse through our Products.Click below to Know More </p>
+          <a href="http://www.chelseamegastoreasia.com" target="_blank" class="btn btn-warning btn-block">Take me to the Store</a>
+        </section>
+      </article>
+    </div>
+
+    <div class="row" id="info">
+      <div class="col-sm-6">
+        <h3> Location Details </h3>
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle=tab>Contact address</a></li>
+            <li><a href="#tab2" data-toggle=tab>Map View</a></li>
+          </ul>
+          <div class="tab-content">
+            <tab class="tab-pane active" id=tab1>
+              <h3><span class="glyphicon glyphicon-map-marker"></span>Contact Us <small> We are always for you </small></h3>
+              <img src="img/Chelease_front_view.jpg" class="thumbnail pull-left" alt="Placeholder image">
+              <p translate="no">
+                Fulham Rd,<br>
+                London SW6 1HS,<br>
+                <abbr title="United Kingdom">UK</abbr></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam pariatur blanditiis consequatur aliquam velit temporibus vero nam, modi repellat delectus consectetur numquam doloremque tenetur reiciendis fugit accusamus aperiam distinctio!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, esse. Cupiditate iste ratione perferendis nam id accusantium, laudantium adipisci. Ut cupiditate assumenda sint, omnis rem ipsam tempore, quis debitis explicabo.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatibus incidunt aperiam magni impedit velit iste distinctio cupiditate, excepturi repudiandae rerum facilis adipisci accusantium, culpa, libero cum consectetur animi placeat.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a href="#myModal" role="button" class="btn btn-warning" data-toggle="modal"><span class="glyphicon glyphicon-hand-up"></span>Send your Comments</a>
+                <div class="modal fade" id="myModal">
+                  <div class="modal-dialog">
+                    <header class="modal-header">
+                      <h4>Fan Details<h4>
+                      </header>
+                      <content class="modal-body">
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" for="name">Name</label>
+                            <div class="col-lg-10">
+                              <input id="name" type="text" placeholder="Enter your Name"/>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" for="emailId">E-Mail</label>
+                            <div class="col-lg-10">
+                              <input id="emailId" type="email" class="email" placeholder="Enter your E-Mail Address"/>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Comments</label>
+                            <div class="col-lg-10">
+                              <textarea class="form-control" id="inputMessage" placeholder="Your Comment goes here" rows="3"></textarea>
+                            </div>
+                          </div>
+                        </form>
+                      </content>
+                      <div class="modal-footer">
+                        <a class="btn btn-danger" data-toggle="popover" data-original-title="E-mail ID" data-content="Mail ID : chelseafc@chelsea.uk" data-placements="top" href="#">Click Here to know the Mail-ID</a>
+                        <button class="btn btn-default" data-original-title="Close this Window" rel="tooltip" data-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary" data-original-title="Send the Comment To Chelsea" rel="tooltip" type="button" data-dismiss="modal" data-toggle="modal" data-target="#commentsubmit">Send</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="commentsubmit">
+                    <div class="modal-dialog">
+                      <content class="modal-body">
+                        <h4 id="Comment"> Comment Submitted </h4>
+                      </content>
+                        <div class="modal-footer">
+                          <button class="btn btn-default" data-dismiss="modal" type="button">OK</button>
+                        </div>
+                      </div>
+                    </div>
+                </tab>
+                <map class="tab-pane" id=tab2>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.719310510044!2d-0.1931451847385944!3d51.48166632040614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760f864b976f3d%3A0x48aa38781ea565f8!2sStamford+Bridge!5e0!3m2!1sen!2s!4v1455698724310" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </map>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h3> Upcoming Events</h3>
+            <p>Chelsea has always been involved in Various Club Competitions. Please follow this Section in order to know more about all the upcming Chelsea Matches,Events and other Community intitiatives</p>
+            <h3> Events </h3>
+            <div class="list-group">
+              <a href="#" class="list-group-item" id="stunningGoals">
+                <h4 class="list-group-item-heading">Stunning Goals</h4>
+              </a>
+              <a href="#" class="list-group-item" id="winningmoments">
+							<h4 class="list-group-item-heading">Winning Moments</h4>
+						</a>
+						<a href="#" class="list-group-item" id="chelseaLife">
+							<h4 class="list-group-item-heading">Life At Chelsea</h4>
+						</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- End of Main container  -->
+    </body>
+    </html>
