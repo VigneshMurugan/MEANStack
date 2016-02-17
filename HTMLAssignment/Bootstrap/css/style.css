@@ -1,6 +1,7 @@
 body{
   background-image: url("../img/site_background.jpg");
   color: white;
+  background-size: cover;
 }
 #navigationBar{
   background-color: rgba(0,0,0,0);
@@ -36,7 +37,7 @@ body{
 #default_carousel .item{
   height: 400px;
   max-width: 100%;
-  background-size: contain;
+  background-size: cover;
 }
 #slide1{
   background: url("../img/carousel_slide1.jpg") top center no-repeat;
@@ -76,9 +77,16 @@ a.list-group-item .list-group-item-text , a.list-group-item .list-group-item-hea
 #heading > div > p{
   margin-left: 40px;
 }
-#features {
+#features,#playerGrid{
   text-align: center;
   color: white;
+}
+#playerGrid{
+  margin-top: 150px;
+}
+.featureimg{
+  width: 220px;
+  height: 285px;
 }
 .content_img{
   max-width: 100%;
@@ -87,9 +95,16 @@ a.list-group-item .list-group-item-text , a.list-group-item .list-group-item-hea
 }
 .panel ,.panel-heading{
   background-color: transparent;
+  color: white;
 }
 .panel:hover,#heading:hover,.popover,.popover-title{
   background-color: rgb(1,35,72);
+}
+.panel:hover > a{
+  text-decoration: none;
+}
+.panel > a {
+  color: white;
 }
 .btn-warning{
   background-color: rgb(1,35,56);
@@ -134,8 +149,36 @@ textarea{
 #Comment{
   text-align: center;
 }
-{
-  background-color: rgb(1,35,72);
+footer ul{
+  margin-left: 520px;
+}
+footer ul li{
+  list-style: none;
+  display: inline;
+  width :30px;
+  position: relative;
+  padding: 5px 5px;
+}
+footer ul li img{
+  width: 30px;
+  height: 40px;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 10px 5px;
+}
+footer{
+  padding: 20px;
+  margin-top: 5px;
+  align-items: center;
+  background: #000813;
+  background: -webkit-linear-gradient(-60deg, #0535A7, #000813); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-60deg, #0535A7, #000813);  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-60deg, #0535A7, #000813); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-60deg, #0535A7, #000813);
+}
+#footerContainer{
+  align-items: center;
 }
 @media (max-width: 768px) {
   #nav_container{

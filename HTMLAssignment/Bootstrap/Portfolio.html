@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+  <title>Chelsea FC - Fan Site</title>
+  <!-- links  -->
+  <link rel="stylesheet" href="css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/bootstrap-glyphicons.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="img/favicon.ico"/>
+
+  <!-- scripts -->
+  <script src="js/jquery-1.8.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div class="container" id="main_container">
+    <div class="navbar navbar-fixed-top" id ="navigationBar">
+
+      <!-- burger-menu is used as the toggle for collapsed navbar content -->
+      <button id="burger-menu" class="navbar-toggle" data-target="#nav_container" data-toggle="collapse" type="button">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div id="logo_container">
+        <a class="navbar-brand" id="site_logo" href="http://www.chelseafc.com" target="_blank">
+          <img class="img-responsive" src="img/cfc_main_logo.png" alt="Chelsea"/>
+        </a>
+      </div>
+      <!-- end of log container  -->
+
+      <div class="nav-collapse collapse navbar-responsive-collapse pull-right" id="nav_container">
+        <ul class="nav navbar-nav" id="link_container">
+          <li class="active">
+            <a href="Home.html">Home</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Players<span class="caret"></span></a>
+            <ul class="dropdown-menu" id="playerProfile-Dropdown">
+              <li><a class="sub-menu" href="#">Player Details</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form id = "siteSearchElement" class="navbar-form pull-left">
+          <input type="text" class="form-control" placeholder="Search the Site" id="searchInput"/>
+          <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+
+        <ul class="nav navbar-nav pull-right" id="myAccount_Dropdown">
+          <li id= "userlink">
+            <a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- end of nav bar -->
+
+    <!--Player Profile Grid-->
+
+    <div class="row" id="playerGrid">
+      <div class="col-12">
+        <article class="col-sm-4 feature article">
+          <section class="panel">
+            <a href="https://en.wikipedia.org/wiki/John_Terry" target="_blank">
+              <header id="panelHeading1" class="panel-heading">
+                <h3 class="panel-title">John Terry</h3>
+              </header>
+              <div class="preview">
+                <img class="img-circle" alt="John Terry" title="John Terry" src="img/JohnTerry.jpg">
+              </div>
+              <p><strong>John Terry</strong> is a strong, tenacious, commanding and physical defender, Terry excels in the air and is known for his aggressive tackling, positioning and his ability to read the game;he is considered to be one of the best central defenders of his generation</p>
+            </a>
+          </article>
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Eden_Hazard" target="_blank">
+                <header id="panelHeading1" class="panel-heading">
+                  <h3 class="panel-title">Eden Hazard</h3>
+                </header>
+                <div class="preview">
+                  <img class="img-circle featureimg" alt="Eden Hazard" title="Eden Hazard" src="img/EdenHazard.jpg">
+                </div>
+                <p><strong>Eden Hazard</strong> primarily plays as an attacking midfielder and a winger. Hazard's creativity, speed, and technical ability are widely acknowledged. He has been described as "a superb passer" and has earned critical acclaim for his playing style</p>
+              </a>
+            </section>
+          </article>
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Oscar_(footballer,_born_1991)" target="_blank">
+                <header class="panel-heading">
+                  <h3 class="panel-title">Oscar</h3>
+                </header>
+                <div class="preview">
+                  <img class="img-circle featureimg" alt="Oscar" title="Oscar" src="img/Oscar.jpg">
+                </div>
+                <p><strong>Oscar</strong> has drawn comparisons to players such as Mesut Özil and fellow Brazilian teammate Kaká due to his playmaking abilities. As a playmaker, Oscar has great vision and is able to deliver the precise pass to his teammates. </p>
+              </a>
+            </article>
+          </section>
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Diego_Costa" target="_blank">
+                <header class="panel-heading">
+                  <h3 class="panel-title">Diego Costa</h3>
+                </header>
+                <div class="preview">
+                  <img class="img-circle featureimg" alt="Diego Costa" title="Diego Costa" src="img/Diego%20Costa.jpg">
+                </div>
+                <p><strong>Diego Costa</strong> has been described by pundits as a talented striker whose main attributes are his physicality, goalscoring and ability to keep possession, however he has also been criticised and punished for several confrontations with opponents</p>
+              </a>
+            </section>
+          </article>
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Radamel_Falcao" target="_blank">
+                <header class="panel-heading">
+                  <h3 class="panel-title">Radamel Falcao</h3>
+                </header>
+                <div class="preview">
+                  <img class="featureimg img-circle" alt="Radamel Falcao" title="Radamel Falcao" src="img/Radamel_Falcao.jpg">
+                </div>
+                <p><strong>Radamel Falcao</strong>  on loan from French club Monaco, and captain of the Colombia national team. He is sometimes nicknamed El Tigre (Spanish for The Tiger) or King of the Europa League.Falcao has been described as one of the most "natural in form, goal scorers" in the world.</p>
+              </a>
+            </section>
+          </article>
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Willian_(footballer)" target="_blank">
+                <header class="panel-heading">
+                  <h3 class="panel-title">Willian</h3>
+                </header>
+                <div class="preview">
+                  <img class="img-circle featureimg" alt="Willian" title="Willian " src="img/Willian.jpg">
+                </div>
+                <p><strong>Willian</strong> A fast, agile, hard-working, and technically gifted player, Willian is known for his quick feet, acceleration, and explosive style of play, which allows him to dribble past opponents at speed whilst keeping close control of the ball typically Brazilian style.</p>
+              </a>
+            </section>
+          </article>
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Cesc_F%C3%A0bregas" target="_blank">
+                <header class="panel-heading">
+                  <h3 class="panel-title">Cesc Fabregas</h3>
+                </header>
+                <div class="preview">
+                  <img class="img-circle featureimg" alt="Cesc Fàbregas" title="Cesc Fàbregas" src="img/Fabregas.jpg">
+                </div>
+                <p><strong>Cesc Fabregas</strong> came through La Masia, Barcelona's youth academy, leaving at 16 when he was signed by English Premier League side Arsenal in September 2003.He broke several of the club's records in the process, earning a reputation as one of the best players in his position.</p>
+              </a>
+            </section>
+          </article>
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Pedro_(footballer,_born_July_1987)" target="_blank">
+                <header class="panel-heading">
+                  <h3 class="panel-title">Pedro</h3>
+                </header>
+                <div class="preview">
+                  <img class="featureimg img-circle" alt="Pedro" title="Pedro" src="img/Pedro.jpg">
+                </div>
+                <p><strong>Pedro</strong> is a Spanish professional footballer who plays as a forward or a winger for English club Chelsea and the Spain national team. During the 09/10 season, he became the first player in history to score in six different official club competitions in one season</p>
+              </a>
+            </section>
+          </article>
+
+          <article class="col-sm-4 feature article">
+            <section class="panel">
+              <a href="https://en.wikipedia.org/wiki/Gary_Cahill" target="_blank">
+                <header class="panel-heading">
+                  <h3 class="panel-title">Cahill</h3>
+                </header>
+                <div class="preview">
+                  <img class="featureimg img-circle" alt="Cahill" title="Cahill" src="img/Cahill.jpg">
+                </div>
+                <p><strong>Cahill</strong>  is known for his technical ability, powerful heading in defence and attack. The centre back also has an impressive goal-scoring record from defence which is a great asset for any team.. He is known for his technical attributes and his pace is fantastic.</p>
+              </a>
+            </section>
+          </article>
+        </div>
+      </div>
+
+      <footer>
+        <div class="container" id="footerContainer">
+          <div class="row" id="footerRow">
+            <ul>
+              <li><a href="https://www.facebook.com/ChelseaFC/" target="_blank"><img alt="facebook" src='img/facebook_icon.png' />Like Us on facebook</a></li>
+              <li><a href="https://twitter.com/ChelseaFC" target="_blank"><img alt="Twitter" src='img/twitter.png' />Follow us on Twitter</a></li>
+              <li><a href="https://www.youtube.com/user/chelseafc" target="_blank"><img alt="Youtube" src='img/youtube.png' />Releive the Moments at Youtube</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  </html>
