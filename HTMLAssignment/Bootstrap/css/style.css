@@ -3,102 +3,107 @@ body{
   color: white;
   background-size: cover;
 }
-#navigationBar{
-  background-color: rgba(0,0,0,0);
+/*scroll bar*/
+body::-webkit-scrollbar {
+  width: .5em;
 }
-#link_container,#myAccount_Dropdown,#playerProfile-Dropdown,#siteSearchElement{
-  margin-top: 10px;
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(0,0,0);
 }
-#playerProfile-Dropdown{
+body::-webkit-scrollbar-thumb {
   background-color: rgb(1,35,72);
+  outline: 1px solid rgb(1,35,72);
 }
-.sub-menu{
-  text-decoration: none;
-}
-#link_container > li > a , #myAccount_Dropdown > li > a, #playerProfile-Dropdown > li > a{
-  color: white;
+/*end of scroll bar*/
+/*navigation Bar Link*/
+.navigationBarLink{
+  color:white !important;
   transition: 0.5s ease;
   background-color: rgba(0,0,0,0);
 }
-#link_container > li > a:after , #playerProfile-Dropdown > li > a:after {
+.navigationBarLink:hover,.navigationBarLink:focus{
+  text-decoration: none !important;
+  background-color: rgba(0,0,0,0) !important;
+  color: white !important
+}
+.navigationBarLink:after{
   content: '';
   display: block;
   margin: auto;
   height: 1px;
   width: 0px;
 }
-
-#searchInput{
-  width: 80%;
+.navbar-items{
+  margin-top: 20px;
 }
+.navbar-items-dropDown{
+  background-color: rgb(1,35,72);
+}
+.navbar-brand{
+  max-width: 200px;
+  height: 70px;
+  margin: auto;
+}
+.navbar-toggle{
+  margin-top: 14px;
+}
+.navbar-toggle .icon-bar{
+  background-color: white;
+}
+#searchInput{
+  margin-right:2px;
+  width: 150px;
+}
+/*end of navigation bar links*/
+/*carousel css*/
 #default_carousel{
   margin-top: 150px;
 }
 #default_carousel .item{
   height: 400px;
-  max-width: 100%;
   background-size: cover;
 }
-#slide1{
-  background: url("../img/carousel_slide1.jpg") top center no-repeat;
+.carousel-inner > .item > img{
+  display: inline-block;
 }
-#slide2{
-  background: url("../img/carousel_slide2.jpg") top center no-repeat;
-}
-#slide3{
-  background: url("../img/carousel_slide3.jpg") top center no-repeat;
-}
-#siteSearchElement > button{
-  padding-left: 8px;
-}
-#stunningGoals,#winningmoments,#chelseaLife{
-  background: url("../img/stunning_goal.gif") no-repeat;
+.carouselslide{
+  background-repeat: no-repeat;
   background-size: cover;
-  height: 260px;
+  width: 100% !important;
+  height: 400px !important;
+  max-height:100%;
+  display: inline-block;
+  position: relative;
 }
-#winningmoments{
-  background: url("../img/winning_moment.gif") no-repeat;
-  background-size: cover;;
+#carousel_img_1{
+  background-image:url("../img/carousel_slide1.jpg");
 }
-#chelseaLife{
-  background: url("../img/team_morale.gif") no-repeat;
-  background-size: cover;
+#carousel_img_2{
+  background-image: url("../img/carousel_slide2.jpg");
 }
-a.list-group-item .list-group-item-text , a.list-group-item .list-group-item-heading{
-  display: inline;
-  color: white;
-  background-color:rgb(1,35,72);
+#carousel_img_3{
+  background-image: url("../img/carousel_slide3.jpg");
 }
-#heading{
-  color: white;
-  background: rgba(0,0,0,0);
-  margin: 20px 0;
+/*end of carousel*/
+/*row css*/
+.row{
+  margin-top: 10px;
 }
-#heading > div > p{
-  margin-left: 40px;
+.well{
+  background: transparent;
 }
-#features,#playerGrid{
+#playerGrid {
+    margin-top: 150px;
+    text-align: center;
+    color: white;
+}
+/*end of row*/
+/*moreInfo CSS*/
+.panel{
+  background: transparent;
   text-align: center;
-  color: white;
-}
-#playerGrid{
-  margin-top: 150px;
-}
-.featureimg{
-  width: 220px;
-  height: 285px;
-}
-.content_img{
-  max-width: 100%;
-  max-height: 100%;
-  background-size: cover;
-}
-.panel ,.panel-heading{
-  background-color: transparent;
-  color: white;
-}
-.panel:hover,#heading:hover,.popover,.popover-title{
-  background-color: rgb(1,35,72);
+  border: 1px solid;
+  padding: 5px 5px;
 }
 .panel:hover > a{
   text-decoration: none;
@@ -106,26 +111,51 @@ a.list-group-item .list-group-item-text , a.list-group-item .list-group-item-hea
 .panel > a {
   color: white;
 }
-.btn-warning{
-  background-color: rgb(1,35,56);
+.featureimg{
+  width: 200px;
+  height: 200px;  
+  margin :10px 10px;
 }
-.btn-warning:hover{
-  background-color: green;
+.panel-heading{
+  border-bottom: 1px solid;
 }
-.nav-tabs > li{
-  background-color: transparent;
+a.btn-warning{
+  margin: auto;
+  white-space:normal !important;
+  width: 50%;
 }
-.nav-tabs > li.active > a, .nav-tabs > li > a:hover, .nav-tabs > li.active > a:focus{
+.btn-warning:hover , .nav-tabs > li.active > a, .nav-tabs > li > a:hover, .nav-tabs > li.active > a:focus{
   background-color: green;
   color: white;
-  border-bottom-color: rgb(1,35,72);
+}
+/*end of moreInfo CSS*/
+/*List Group*/
+#stunningGoals,#winningmoments,#chelseaLife{
+  background: url("../img/stunning_goal.gif") no-repeat;
+  background-size: cover;
+  height: 150px;
+}
+#winningmoments{
+  background: url("../img/winning_moment.gif") no-repeat;
+    background-size: cover;
+}
+#chelseaLife{
+  background: url("../img/team_morale.gif") no-repeat;
+    background-size: cover;
+}
+a.list-group-item .list-group-item-heading , a.list-group-item .list-group-item-text{
+  display: inline;
+  color: white;
+  background-color:rgb(1,35,72);
+}
+iframe{
+    width: 80%;
+    height: 300px;
+    margin: 10px auto;
+    display: block;
 }
 .thumbnail{
-  margin-right: 20px;
-}
-.modal-dialog{
-  margin-top: 10px;
-  background-color: rgb(1,35,72);
+  margin-right: 50%;
 }
 input , .form-control{
   border: none;
@@ -136,21 +166,29 @@ input , .form-control{
   outline: none;
   padding: 10px
 }
-textarea{
-  border-style: none;
-  border-color: Transparent;
-  overflow: auto;
-  outline: none;
-  resize: none;
+/*End of List group*/
+/*Modal Dialog*/
+.modal-dialog{
+  margin-top: 10px;
+  background-color: rgb(1,35,72);
+}
+.panel:hover,#heading:hover,.popover,.popover-title{
+  background-color: rgb(1,35,72);
+}
+.modal-body{
+  margin: auto;
+  padding: 20px;
+}
+.modal-body > h4{
+  text-align: center;
 }
 .modal-footer{
   border-top: none;
 }
-#Comment{
-  text-align: center;
-}
+/*End of Modal*/
+/*Footer CSS*/
 footer ul{
-  margin-left: 520px;
+  margin-left: 40%
 }
 footer ul li{
   list-style: none;
@@ -180,23 +218,24 @@ footer{
 #footerContainer{
   align-items: center;
 }
-@media (max-width: 768px) {
-  #nav_container{
-    background-color: rgb(1,35,72);
-    width:100%;
-  }
-  #link_container{
-    text-decoration: none;
-  }
-  #navigationBar{
-    background-color: rgb(1,35,72);
-  }
-}
-@media (min-width:768px) {
-  #link_container > li > a:hover:after , #playerProfile-Dropdown > li > a:hover:after  {
+/*End of Footer*/
+@media (min-width: 768px){
+  .navigationBarLink:hover:after{
     width: 100%;
     background: red;
     transition: 0.5s ease;
-    background-color: .5s ease;
+  }
+}
+@media (max-width: 768px){
+  #navigationBar{
+    background-color: rgb(1,35,72);
+    width:100%;
+    margin: auto;
+  }
+  .navbar-items{
+    margin-left: 10px;
+  }
+  .thumbnail{
+    margin-right: 20%;
   }
 }

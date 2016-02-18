@@ -1,23 +1,29 @@
 <!doctype html>
 <html>
 <head>
-
-  <!-- links  -->
+  <!-- links -->
   <link rel="stylesheet" href="css/bootstrap.css"/>
   <link rel="stylesheet" href="css/bootstrap-glyphicons.css"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="icon" href="img/favicon.ico"/>
 
-  <!-- scripts -->
-  <script src="js/jquery-1.8.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <!-- end of links -->
+
+  <!-- script -->
+  <script src="js/jquery-1.12.0.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!--end of script -->
+
   <!-- title -->
   <title>Chelsea Fan Site | Keep the Blue flag Flying</title>
-</head>
+
+
+</head><!--end of head-->
 <body>
   <div class="container" id="main_container">
-    <div class="navbar navbar-fixed-top" id ="navigationBar">
+    <!-- navigation bar -->
+    <nav class="navbar navbar-fixed-top" id ="navigationBar" role="navigation">
 
       <!-- burger-menu is used as the toggle for collapsed navbar content -->
       <button id="burger-menu" class="navbar-toggle" data-target="#nav_container" data-toggle="collapse" type="button">
@@ -26,42 +32,39 @@
         <span class="icon-bar"></span>
       </button>
 
-      <div id="logo_container">
-        <a class="navbar-brand" id="site_logo" href="http://www.chelseafc.com" target="_blank">
-          <img class="img-responsive" src="img/cfc_main_logo.png" alt="Chelsea"/>
+      <!-- logo container -->
+      <div class="navbar-header" id="logo_container">
+        <a class="navbar-brand" href="http://www.chelseafc.com" target="_blank">
+          <img class="img-responsive pull-left" src="img/cfc_main_logo.png" alt="Chelsea"/>
         </a>
       </div>
-      <!-- end of log container  -->
-
-      <div class="nav-collapse collapse navbar-responsive-collapse pull-right" id="nav_container">
-        <ul class="nav navbar-nav" id="link_container">
+      <!-- end of logo container  -->
+      <!--navigation Bar Links  -->
+      <div class="navbar-collapse collapse navbar-responsive-collapse" id="nav_container">
+        <ul class="nav navbar-nav navbar-items">
           <li class="active">
-            <a href="#">About</a>
+            <a class="navigationBarLink" href="#">About</a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Players<span class="caret"></span></a>
-            <ul class="dropdown-menu" id="playerProfile-Dropdown">
-              <li><a class="sub-menu" href="Portfolio.html">Player Details</a></li>
+            <a class="navigationBarLink" href="#" class="dropdown-toggle" data-toggle="dropdown">Players<span class="caret"></span></a>
+            <ul class="dropdown-menu navbar-items-dropDown">
+              <li><a class="navigationBarLink" href="Portfolio.html">Player Details</a></li>
             </ul>
           </li>
         </ul>
 
-        <form id = "siteSearchElement" class="navbar-form pull-left">
-          <input type="text" class="form-control" placeholder="Search the Site" id="searchInput"/>
+        <form class="navbar-form pull-left navbar-items">
+          <input type="text" class="form-control pull-left" placeholder="Search the Site" id="searchInput"/>
           <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
         </form>
 
-        <ul class="nav navbar-nav pull-right" id="myAccount_Dropdown">
-          <li id= "userlink">
-            <a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a>
-          </li>
-        </ul>
       </div>
+    </nav>
+    <!-- end of navigation Bar Links-->
+    <!-- end of Navigation Bar -->
 
-    </div>
-    <!-- end of nav bar -->
-
-    <div class="carousel slide" id="default_carousel" data-ride="carousel">
+    <!--carousel slide-->
+    <div class="carousel slide carouselSlider" id="default_carousel" data-ride="carousel">
 
       <ol class="carousel-indicators">
         <li class="active" data-slide-to="0" data-target="#default_carousel"></li>
@@ -74,18 +77,21 @@
           <div class="carousel-caption" id="caption1">
             <h4>Blue Devils</h4>
           </div>
+          <img id="carousel_img_1" class="img-responsive carouselslide"/>
         </div>
 
         <div class="item" id="slide2">
           <div class="carousel-caption">
             <h4>Hazardous</h4>
           </div>
+          <img id="carousel_img_2" class="img-responsive carouselslide"/>
         </div>
 
         <div class="item" id="slide3">
           <div class="carousel-caption">
             <h4>Making Every Move Count</h4>
           </div>
+          <img id="carousel_img_3" class="img-responsive carouselslide"/>
         </div>
       </div>
 
@@ -94,11 +100,11 @@
 
     </div>
     <!-- end of carousel  -->
-
+    <!--feauture row-->
     <div class="row" id="callButton">
 
-      <div class="col-12">
-        <div class="well visible-sm well-small">
+      <div class="col-md-12">
+        <div class="well visible-xs well-small">
           <a class="btn btn-large btn-default btn-block"><span class="glyphicon glyphicon-phone"></span>Call Us To Know more !</a>
         </div>
 
@@ -114,6 +120,8 @@
     </div>
     <!--end of row -->
 
+    <!--moreInfo-->
+
     <div class="row" id="features">
       <article class="col-sm-4 feature article">
         <section id=panel1 class="panel">
@@ -124,7 +132,7 @@
 
             <div class="carousel-inner">
               <div class="item active">
-                <img class="img-circle" alt="Destined Champions" src="img/club_history_carusel_1.jpg"/>
+                <img class="img-circle featureimg" alt="Destined Champions" src="img/club_history_carusel_1.jpg"/>
               </div>
 
               <div class="item">
@@ -151,7 +159,7 @@
           <div class="carousel slide" data-ride="carousel" data-interval=3000>
             <div class="carousel-inner">
               <div class="item active">
-                <img class="img-circle" alt="Destined Champions" src="img/squad_carousel_1.jpg"/>
+                <img class="img-circle featureimg" alt="Destined Champions" src="img/squad_carousel_1.jpg"/>
               </div>
 
               <div class="item">
@@ -173,17 +181,19 @@
           <header class="panel-heading">
             <h3 class="panel-title"> Club Mechandise </h3>
           </header>
-          <div>
-            <img class="content_img img-circle" alt="Merchandise" title="Click to know about the Current Squad" src="img/club_merchandise_1.jpg">
+          <div class="item">
+            <img class="img-circle featureimg" alt="Merchandise" title="Click to know about the Current Squad" src="img/club_merchandise_1.jpg">
           </div>
           <p>We offer a wide Range of Club Merchandise for fans like you all over World.<em> We are sure that you'll Fall head over heels</em> after you browse through our Products.Click below to Know More </p>
           <a href="http://www.chelseamegastoreasia.com" target="_blank" class="btn btn-warning btn-block">Take me to the Store</a>
         </section>
       </article>
     </div>
+    <!-- end of moreInfo -->
 
+<!--end of Location Details-->
     <div class="row" id="info">
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <h3> Location Details </h3>
         <div class="tabbable">
           <ul class="nav nav-tabs">
@@ -193,7 +203,7 @@
           <div class="tab-content">
             <tab class="tab-pane active" id=tab1>
               <h3><span class="glyphicon glyphicon-map-marker"></span>Contact Us <small> We are always for you </small></h3>
-              <img src="img/Chelease_front_view.jpg" class="thumbnail pull-left" alt="Placeholder image">
+              <img src="img/Chelease_front_view.jpg" class="thumbnail pull-left img-responsive" alt="Placeholder image">
               <p translate="no">
                 Fulham Rd,<br>
                 London SW6 1HS,<br>
@@ -201,8 +211,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam pariatur blanditiis consequatur aliquam velit temporibus vero nam, modi repellat delectus consectetur numquam doloremque tenetur reiciendis fugit accusamus aperiam distinctio!</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, esse. Cupiditate iste ratione perferendis nam id accusantium, laudantium adipisci. Ut cupiditate assumenda sint, omnis rem ipsam tempore, quis debitis explicabo.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatibus incidunt aperiam magni impedit velit iste distinctio cupiditate, excepturi repudiandae rerum facilis adipisci accusantium, culpa, libero cum consectetur animi placeat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <a href="#myModal" role="button" class="btn btn-warning" data-toggle="modal"><span class="glyphicon glyphicon-hand-up"></span>Send your Comments</a>
                 <div class="modal fade" id="myModal">
                   <div class="modal-dialog">
@@ -243,36 +251,34 @@
                       <content class="modal-body">
                         <h4 id="Comment"> Comment Submitted </h4>
                       </content>
-                        <div class="modal-footer">
-                          <button class="btn btn-default" data-dismiss="modal" type="button">OK</button>
-                        </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">OK</button>
                       </div>
                     </div>
+                  </div>
                 </tab>
-                <map class="tab-pane" id=tab2>
-                  <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.719310510044!2d-0.1931451847385944!3d51.48166632040614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760f864b976f3d%3A0x48aa38781ea565f8!2sStamford+Bridge!5e0!3m2!1sen!2s!4v1455698724310" width="50" height="650" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <map class="tab-pane img-responsive" id=tab2>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.719310510044!2d-0.1931451847385944!3d51.48166632040614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760f864b976f3d%3A0x48aa38781ea565f8!2sStamford+Bridge!5e0!3m2!1sen!2s!4v1455698724310" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </map>
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <h3> Upcoming Events</h3>
-            <p>Chelsea has always been involved in Various Club Competitions. Please follow this Section in order to know more about all the upcming Chelsea Matches,Events and other Community intitiatives</p>
-            <h3> Events </h3>
+          <div class="col-sm-4">
+            <h3>Down the Memory Lane</h3>
+            <p>Chelsea has always been involved in Various Club Competitions. Please follow this Section in order to view some Nostalgic, Legendary memories of Our Club</p>
             <div class="list-group">
               <a href="#" class="list-group-item" id="stunningGoals">
                 <h4 class="list-group-item-heading">Stunning Goals</h4>
               </a>
               <a href="#" class="list-group-item" id="winningmoments">
-							<h4 class="list-group-item-heading">Winning Moments</h4>
-						</a>
-						<a href="#" class="list-group-item" id="chelseaLife">
-							<h4 class="list-group-item-heading">Life At Chelsea</h4>
-						</a>
+                <h4 class="list-group-item-heading">Winning Moments</h4>
+              </a>
+              <a href="#" class="list-group-item" id="chelseaLife">
+                <h4 class="list-group-item-heading">Life At Chelsea</h4>
+              </a>
             </div>
           </div>
         </div>
-
 
         <footer>
           <div class="container" id="footerContainer">
@@ -286,9 +292,8 @@
           </div>
         </footer>
 
-      </div>
-      <!-- End of Main container  -->
 
 
-    </body>
-    </html>
+      </body>
+
+      </html>

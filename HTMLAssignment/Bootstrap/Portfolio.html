@@ -1,18 +1,22 @@
 <!doctype html>
 <html>
 <head>
-  <title>Chelsea FC - Fan Site</title>
-  <!-- links  -->
+  <!-- links -->
   <link rel="stylesheet" href="css/bootstrap.css"/>
   <link rel="stylesheet" href="css/bootstrap-glyphicons.css"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="icon" href="img/favicon.ico"/>
 
-  <!-- scripts -->
-  <script src="js/jquery-1.8.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <!-- end of links -->
+
+  <!-- script -->
+  <script src="js/jquery-1.12.0.min.js"></script>
   <script src="js/script.js"></script>
-  <meta charset="UTF-8">
+  <script src="js/bootstrap.min.js"></script>
+  <!--end of script -->
+
+  <!-- title -->
+  <title>Chelsea Fan Site | Keep the Blue flag Flying</title>
 </head>
 <body>
   <div class="container" id="main_container">
@@ -25,38 +29,32 @@
         <span class="icon-bar"></span>
       </button>
 
-      <div id="logo_container">
-        <a class="navbar-brand" id="site_logo" href="http://www.chelseafc.com" target="_blank">
-          <img class="img-responsive" src="img/cfc_main_logo.png" alt="Chelsea"/>
+      <!-- logo container -->
+      <div class="navbar-header" id="logo_container">
+        <a class="navbar-brand" href="http://www.chelseafc.com" target="_blank">
+          <img class="img-responsive pull-left" src="img/cfc_main_logo.png" alt="Chelsea"/>
         </a>
       </div>
-      <!-- end of log container  -->
-
-      <div class="nav-collapse collapse navbar-responsive-collapse pull-right" id="nav_container">
-        <ul class="nav navbar-nav" id="link_container">
+      <!-- end of logo container  -->
+      <!--navigation Bar Links  -->
+      <div class="navbar-collapse collapse navbar-responsive-collapse" id="nav_container">
+        <ul class="nav navbar-nav navbar-items">
           <li class="active">
-            <a href="Home.html">Home</a>
+            <a class="navigationBarLink" href="Home.html">Home</a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Players<span class="caret"></span></a>
-            <ul class="dropdown-menu" id="playerProfile-Dropdown">
-              <li><a class="sub-menu" href="#">Player Details</a></li>
+            <a class="navigationBarLink" href="#" class="dropdown-toggle" data-toggle="dropdown">Players<span class="caret"></span></a>
+            <ul class="dropdown-menu navbar-items-dropDown">
+              <li><a class="navigationBarLink" href="Portfolio.html">Player Details</a></li>
             </ul>
           </li>
         </ul>
 
-        <form id = "siteSearchElement" class="navbar-form pull-left">
-          <input type="text" class="form-control" placeholder="Search the Site" id="searchInput"/>
+        <form class="navbar-form pull-left navbar-items">
+          <input type="text" class="form-control pull-left" placeholder="Search the Site" id="searchInput"/>
           <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
         </form>
-
-        <ul class="nav navbar-nav pull-right" id="myAccount_Dropdown">
-          <li id= "userlink">
-            <a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a>
-          </li>
-        </ul>
       </div>
-
     </div>
     <!-- end of nav bar -->
 
@@ -71,7 +69,7 @@
                 <h3 class="panel-title">John Terry</h3>
               </header>
               <div class="preview">
-                <img class="img-circle" alt="John Terry" title="John Terry" src="img/JohnTerry.jpg">
+                <img class="img-circle featureimg" alt="John Terry" title="John Terry" src="img/JohnTerry.jpg">
               </div>
               <p><strong>John Terry</strong> is a strong, tenacious, commanding and physical defender, Terry excels in the air and is known for his aggressive tackling, positioning and his ability to read the game;he is considered to be one of the best central defenders of his generation</p>
             </a>
@@ -124,7 +122,7 @@
                 <div class="preview">
                   <img class="featureimg img-circle" alt="Radamel Falcao" title="Radamel Falcao" src="img/Radamel_Falcao.jpg">
                 </div>
-                <p><strong>Radamel Falcao</strong>  on loan from French club Monaco, and captain of the Colombia national team. He is sometimes nicknamed El Tigre (Spanish for The Tiger) or King of the Europa League.Falcao has been described as one of the most "natural in form, goal scorers" in the world.</p>
+                <p><strong>Radamel Falcao</strong>  on loan from French club Monaco, and captain of the Colombia national team. He is sometimes nicknamed El Tigre (Spanish for The Tiger) or King of the Europa League.He is a Natural Athlete known for his Dribbling</p>
               </a>
             </section>
           </article>
@@ -150,7 +148,7 @@
                 <div class="preview">
                   <img class="img-circle featureimg" alt="Cesc Fàbregas" title="Cesc Fàbregas" src="img/Fabregas.jpg">
                 </div>
-                <p><strong>Cesc Fabregas</strong> came through La Masia, Barcelona's youth academy, leaving at 16 when he was signed by English Premier League side Arsenal in September 2003.He broke several of the club's records in the process, earning a reputation as one of the best players in his position.</p>
+                <p><strong>Cesc Fabregas</strong> came through La Masia, Barcelona's youth academy, leaving at 16 when he was signed by English Premier League side Arsenal in September 2003.He broke several of the club's records in the process.</p>
               </a>
             </section>
           </article>
