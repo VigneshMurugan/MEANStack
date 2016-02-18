@@ -113,7 +113,7 @@ body::-webkit-scrollbar-thumb {
 }
 .featureimg{
   width: 200px;
-  height: 200px;  
+  height: 200px;
   margin :10px 10px;
 }
 .panel-heading{
@@ -188,12 +188,13 @@ input , .form-control{
 /*End of Modal*/
 /*Footer CSS*/
 footer ul{
-  margin-left: 40%
+  text-align: center;
 }
 footer ul li{
   list-style: none;
   display: inline;
   width :30px;
+  margin: auto;
   position: relative;
   padding: 5px 5px;
 }
@@ -237,5 +238,8 @@ footer{
   }
   .thumbnail{
     margin-right: 20%;
+  }
+  footer ul{
+    margin-left: 5px;
   }
 }
