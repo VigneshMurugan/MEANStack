@@ -1,0 +1,284 @@
+body{
+  background-image: url("../img/site_background.jpg");
+  color: white;
+  background-size: cover;
+}
+/*scroll bar*/
+body::-webkit-scrollbar {
+  width: .5em;
+}
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(0,0,0);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(1,35,72);
+  outline: 1px solid rgb(1,35,72);
+}
+/*end of scroll bar*/
+/*navigation Bar Link*/
+.navigationBarLink{
+  color:white !important;
+  transition: 0.5s ease;
+  background-color: rgba(0,0,0,0);
+}
+.navigationBarLink:hover,.navigationBarLink:focus{
+  text-decoration: none !important;
+  background-color: rgba(0,0,0,0) !important;
+  color: white !important
+}
+.navigationBarLink:after{
+  content: '';
+  display: block;
+  margin: auto;
+  height: 1px;
+  width: 0px;
+}
+.navbar-items{
+  margin-top: 20px;
+}
+.navbar-items-dropDown{
+  background-color: rgb(1,35,72);
+}
+.navbar-brand{
+  max-width: 200px;
+  height: 70px;
+  margin: auto;
+}
+.navbar-toggle{
+  margin-top: 14px;
+}
+.navbar-toggle .icon-bar{
+  background-color: white;
+}
+.alert{
+  display: none;
+}
+#searchInput{
+  margin-right:2px;
+  width: 150px;
+}
+#searchButton{
+  margin-top: 4px !important;
+}
+.badge{
+  margin-left: 10px;
+}
+/*end of navigation bar links*/
+/*carousel css*/
+#default_carousel{
+  margin-top: 150px;
+}
+#default_carousel .item{
+  height: 400px;
+  background-size: cover;
+}
+.carousel-inner > .item > img{
+  display: inline-block;
+}
+.carouselslide{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100% !important;
+  height: 400px !important;
+  max-height:100%;
+  display: inline-block;
+  position: relative;
+}
+#carousel_img_1{
+  background-image:url("../img/carousel_slide1.jpg");
+}
+#carousel_img_2{
+  background-image: url("../img/carousel_slide2.jpg");
+}
+#carousel_img_3{
+  background-image: url("../img/carousel_slide3.jpg");
+}
+.carousel-caption{
+  color: white;
+  background: rgb(0,0,0);
+  opacity : 0.8
+}
+/*end of carousel*/
+/*row css*/
+.row{
+  margin-top: 10px;
+}
+.well{
+  background: transparent;
+}
+#playerGrid {
+    margin-top: 150px;
+    text-align: center;
+    color: white;
+}
+/*end of row*/
+/*moreInfo CSS*/
+.panel{
+  background: transparent;
+  text-align: center;
+  border: 1px solid;
+  padding: 5px 5px;
+}
+.panel:hover > a{
+  text-decoration: none;
+}
+.panel > a {
+  color: white;
+}
+.featureimg{
+  width: 200px;
+  height: 200px;
+  margin :10px 10px;
+}
+.panel-heading{
+  border-bottom: 1px solid;
+}
+a.btn-warning{
+  margin: auto;
+  white-space:normal !important;
+  width: 50%;
+}
+.btn-warning:hover , .nav-tabs > li.active > a, .nav-tabs > li > a:hover, .nav-tabs > li.active > a:focus{
+  background-color: green;
+  color: white;
+}
+/*end of moreInfo CSS*/
+/*List Group*/
+#stunningGoals,#winningmoments,#chelseaLife{
+  background: url("../img/stunning_goal.gif") no-repeat;
+  background-size: cover;
+  height: 150px;
+}
+#winningmoments{
+  background: url("../img/winning_moment.gif") no-repeat;
+    background-size: cover;
+}
+#chelseaLife{
+  background: url("../img/team_morale.gif") no-repeat;
+    background-size: cover;
+}
+a.list-group-item .list-group-item-heading , a.list-group-item .list-group-item-text{
+  display: inline;
+  color: white;
+  background-color:rgb(1,35,72);
+}
+iframe{
+    width: 80%;
+    height: 300px;
+    margin: 10px auto;
+    display: block;
+}
+.thumbnail{
+  margin-right: 50%;
+}
+input , .form-control{
+  border: none;
+  border-bottom: 1px solid white;
+  background: none;
+  margin: 5px 0px;
+  color: white;
+  outline: none;
+  padding: 10px
+}
+/*End of List group*/
+/*Modal Dialog*/
+.modal-dialog{
+  margin-top: 10px;
+  background-color: rgb(1,35,72);
+}
+.panel:hover,#heading:hover,.popover,.popover-title{
+  background-color: rgb(1,35,72);
+}
+.modal-body{
+  margin: auto;
+  padding: 20px;
+}
+.modal-body > h4{
+  text-align: center;
+}
+.modal-footer{
+  border-top: none;
+}
+#comment{
+  padding-left: 30px;
+}
+/*End of Modal*/
+/*Footer CSS*/
+footer ul{
+  text-align: right;
+  padding-left: 40px;
+  padding-right: 45px;
+}
+footer ul li{
+  list-style: none;
+  display: inline;
+  width :30px;
+  margin: auto;
+  position: relative;
+  padding: 5px 5px;
+}
+footer ul li img{
+  width: 40px;
+  height: 45px;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 10px 5px;
+}
+footer{
+  padding: 20px;
+  margin-top: 5px;
+  align-items: center;
+  background: #000813;
+  background: -webkit-linear-gradient(-60deg, #0535A7, #000813); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-60deg, #0535A7, #000813);  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-60deg, #0535A7, #000813); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-60deg, #0535A7, #000813);
+}
+#footerContainer{
+  align-items: center;
+}
+/*End of Footer*/
+
+.labelimage {
+    margin-right: auto;
+    margin-left: auto;
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+  }
+
+@media (min-width: 768px){
+  .navigationBarLink:hover:after{
+    width: 100%;
+    background: red;
+    transition: 0.5s ease;
+  }
+  .modallabel{
+    padding-top: 15px !important;
+  }
+  #commentLabel{
+    padding-left: 15px !important;
+  }
+}
+@media (max-width: 768px){
+  #navigationBar{
+    background-color: rgb(1,35,72);
+    width:100%;
+    margin: auto;
+  }
+  .navbar-items{
+    margin-left: 10px;
+  }
+  .carousel-caption{
+    color: rgb(1,35,72);
+  }
+  .thumbnail{
+    margin-right: 20%;
+  }
+  footer ul{
+    padding-left: 20px;
+    padding-right: 22.5px;
+    color: rgb(1,1,1);
+  }
+}

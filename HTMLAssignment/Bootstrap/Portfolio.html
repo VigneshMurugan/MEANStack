@@ -2,19 +2,19 @@
 <html>
 <head>
   <!-- links -->
-  <link rel="stylesheet" href="css/bootstrap.css"/>
-  <link rel="stylesheet" href="css/bootstrap-glyphicons.css"/>
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="icon" href="img/favicon.ico"/>
+  <link rel="stylesheet" href="lib/css/bootstrap.css"/>
+  <link rel="stylesheet" href="lib/css/bootstrap-glyphicons.css"/>
+  <link rel="stylesheet" href="includes/css/style.css"/>
+  <link rel="icon" href="includes/includes/img/favicon.ico"/>
 
   <!-- end of links -->
 
   <!-- script -->
-  <script src="js/jquery-1.12.0.min.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="lib/js/jquery-1.12.0.min.js"></script>
+  <script src="includes/js/script.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
   <!--end of script -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- title -->
   <title>Chelsea Fan Site | Keep the Blue flag Flying</title>
 </head>
@@ -32,7 +32,7 @@
       <!-- logo container -->
       <div class="navbar-header" id="logo_container">
         <a class="navbar-brand" href="http://www.chelseafc.com" target="_blank">
-          <img class="img-responsive pull-left" src="img/cfc_main_logo.png" alt="Chelsea"/>
+          <img class="img-responsive pull-left" src="includes/img/cfc_main_logo.png" alt="Chelsea"/>
         </a>
       </div>
       <!-- end of logo container  -->
@@ -52,7 +52,7 @@
 
         <form class="navbar-form pull-left navbar-items">
           <input type="text" class="form-control pull-left" placeholder="Search the Site" id="searchInput"/>
-          <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+          <button class="btn btn-default" id="searchButton"><span class="glyphicon glyphicon-search"></span></button>
         </form>
       </div>
     </div>
@@ -61,153 +61,156 @@
     <!--Player Profile Grid-->
 
     <div class="row" id="playerGrid">
+      <h1 class="col-md-12">Squad</h1>
       <div class="col-12">
-        <article class="col-sm-4 feature article">
-          <section class="panel">
+
+        <article class="col-lg-4 feature article"><!--article div starts-->
+          <section class="panel"><!--panel div starts-->
             <a href="https://en.wikipedia.org/wiki/John_Terry" target="_blank">
               <header id="panelHeading1" class="panel-heading">
-                <h3 class="panel-title">John Terry</h3>
+                <h3 class="panel-title">John Terry <span class="badge rankBadge rank-success">Dribbler</span></button></h3>
               </header>
               <div class="preview">
-                <img class="img-circle featureimg" alt="John Terry" title="John Terry" src="img/JohnTerry.jpg">
+                <img class="img-circle featureimg" alt="John Terry" title="John Terry" src="includes/img/JohnTerry.JPG">
               </div>
               <p><strong>John Terry</strong> is a strong, tenacious, commanding and physical defender</p>
             </a>
-          </article>
-          <article class="col-sm-4 feature article">
-            <section class="panel">
-              <a href="https://en.wikipedia.org/wiki/Eden_Hazard" target="_blank">
-                <header id="panelHeading1" class="panel-heading">
-                  <h3 class="panel-title">Eden Hazard</h3>
+          </section><!--end of Section-->
+        </article><!--end of article-->
+        <article class="col-lg-4 feature article"><!--article div starts-->
+          <section class="panel"><!--panel div starts-->
+            <a href="https://en.wikipedia.org/wiki/Eden_Hazard" target="_blank">
+              <header id="panelHeading1" class="panel-heading">
+                <h3 class="panel-title">Eden Hazard <span class="badge rankBadge rank-success">Winger</span></h3>
                 </header>
                 <div class="preview">
-                  <img class="img-circle featureimg" alt="Eden Hazard" title="Eden Hazard" src="img/EdenHazard.jpg">
+                  <img class="img-circle featureimg" alt="Eden Hazard" title="Eden Hazard" src="includes/img/EdenHazard.jpg">
                 </div>
                 <p><strong>Eden Hazard</strong> primarily plays as an attacking midfielder and a winger</p>
               </a>
-            </section>
-          </article>
-          <article class="col-sm-4 feature article">
-            <section class="panel">
+            </section><!--end of Section-->
+          </article><!--end of article-->
+          <article class="col-lg-4 feature article"><!--article div starts-->
+            <section class="panel"><!--panel div starts-->
               <a href="https://en.wikipedia.org/wiki/Oscar_(footballer,_born_1991)" target="_blank">
                 <header class="panel-heading">
-                  <h3 class="panel-title">Oscar</h3>
-                </header>
-                <div class="preview">
-                  <img class="img-circle featureimg" alt="Oscar" title="Oscar" src="img/Oscar.jpg">
-                </div>
-                <p><strong>Oscar</strong> is considered as one of the best playmakers in the History of the Club</p>
-              </a>
-            </article>
-          </section>
-          <article class="col-sm-4 feature article">
-            <section class="panel">
-              <a href="https://en.wikipedia.org/wiki/Diego_Costa" target="_blank">
-                <header class="panel-heading">
-                  <h3 class="panel-title">Diego Costa</h3>
-                </header>
-                <div class="preview">
-                  <img class="img-circle featureimg" alt="Diego Costa" title="Diego Costa" src="img/Diego%20Costa.jpg">
-                </div>
-                <p><strong>Diego Costa</strong> has been described by pundits as a talented striker </p>
-              </a>
-            </section>
-          </article>
-          <article class="col-sm-4 feature article">
-            <section class="panel">
-              <a href="https://en.wikipedia.org/wiki/Radamel_Falcao" target="_blank">
-                <header class="panel-heading">
-                  <h3 class="panel-title">Radamel Falcao</h3>
-                </header>
-                <div class="preview">
-                  <img class="featureimg img-circle" alt="Radamel Falcao" title="Radamel Falcao" src="img/Radamel_Falcao.jpg">
-                </div>
-                <p><strong>Radamel Falcao</strong> is considered a Natural Athlete known for his Dribbling</p>
-              </a>
-            </section>
-          </article>
-          <article class="col-sm-4 feature article">
-            <section class="panel">
-              <a href="https://en.wikipedia.org/wiki/Willian_(footballer)" target="_blank">
-                <header class="panel-heading">
-                  <h3 class="panel-title">Willian</h3>
-                </header>
-                <div class="preview">
-                  <img class="img-circle featureimg" alt="Willian" title="Willian " src="img/Willian.jpg">
-                </div>
-                <p><strong>Willian</strong> A fast, agile, hard-working, and technically gifted player known for his quick feet</p>
-              </a>
-            </section>
-          </article>
-          <article class="col-sm-4 feature article">
-            <section class="panel">
-              <a href="https://en.wikipedia.org/wiki/Cesc_F%C3%A0bregas" target="_blank">
-                <header class="panel-heading">
-                  <h3 class="panel-title">Cesc Fabregas</h3>
-                </header>
-                <div class="preview">
-                  <img class="img-circle featureimg" alt="Cesc Fàbregas" title="Cesc Fàbregas" src="img/Fabregas.jpg">
-                </div>
-                <p><strong>Cesc Fabregas</strong> has broke several of the club's records in his Journey of greatnesss.</p>
-              </a>
-            </section>
-          </article>
-          <article class="col-sm-4 feature article">
-            <section class="panel">
-              <a href="https://en.wikipedia.org/wiki/Pedro_(footballer,_born_July_1987)" target="_blank">
-                <header class="panel-heading">
-                  <h3 class="panel-title">Pedro</h3>
-                </header>
-                <div class="preview">
-                  <img class="featureimg img-circle" alt="Pedro" title="Pedro" src="img/Pedro.jpg">
-                </div>
-                <p><strong>Pedro</strong> is a Spanish professional footballer who plays as a forward or a winger.</p>
-              </a>
-            </section>
-          </article>
+                  <h3 class="panel-title">Oscar <span class="badge rankBadge rank-success">Playmaker</span></h3>
+                  </header>
+                  <div class="preview">
+                    <img class="img-circle featureimg" alt="Oscar" title="Oscar" src="includes/img/Oscar.jpg">
+                  </div>
+                  <p><strong>Oscar</strong> is considered as one of the best playmakers in the History of the Club</p>
+                </a>
+              </article><!--end of article-->
+            </section><!--end of Section-->
+            <article class="col-lg-4 feature article"><!--article div starts-->
+              <section class="panel"><!--panel div starts-->
+                <a href="https://en.wikipedia.org/wiki/Diego_Costa" target="_blank">
+                  <header class="panel-heading">
+                    <h3 class="panel-title">Diego Costa <span class="badge rankBadge rank-success">Striker</span></h3>
+                    </header>
+                    <div class="preview">
+                      <img class="img-circle featureimg" alt="Diego Costa" title="Diego Costa" src="includes/img/Diego%20Costa.jpg">
+                    </div>
+                    <p><strong>Diego Costa</strong> has been described by pundits as a talented striker </p>
+                  </a>
+                </section><!--end of Section-->
+              </article><!--end of article-->
+              <article class="col-lg-4 feature article"><!--article div starts-->
+                <section class="panel"><!--panel div starts-->
+                  <a href="https://en.wikipedia.org/wiki/Radamel_Falcao" target="_blank">
+                    <header class="panel-heading">
+                      <h3 class="panel-title">Radamel Falcao<span class="badge rankBadge rank-success">Dribbler</span></h3>
+                      </header>
+                      <div class="preview">
+                        <img class="featureimg img-circle" alt="Radamel Falcao" title="Radamel Falcao" src="includes/img/Radamel_Falcao.jpg">
+                      </div>
+                      <p><strong>Radamel Falcao</strong> is considered a Natural Athlete known for his Dribbling</p>
+                    </a>
+                  </section><!--end of Section-->
+                </article><!--end of article-->
+                <article class="col-lg-4 feature article"><!--article div starts-->
+                  <section class="panel"><!--panel div starts-->
+                    <a href="https://en.wikipedia.org/wiki/Willian_(footballer)" target="_blank">
+                      <header class="panel-heading">
+                        <h3 class="panel-title">Willian<span class="badge rankBadge rank-success">Samba</span></h3>
+                        </header>
+                        <div class="preview">
+                          <img class="img-circle featureimg" alt="Willian" title="Willian " src="includes/img/Willian.jpg">
+                        </div>
+                        <p><strong>Willian</strong> A fast, agile, hard-working, and technically gifted player known for his quick feet</p>
+                      </a>
+                    </section><!--end of Section-->
+                  </article><!--end of article-->
+                  <article class="col-lg-4 feature article"><!--article div starts-->
+                    <section class="panel"><!--panel div starts-->
+                      <a href="https://en.wikipedia.org/wiki/Cesc_F%C3%A0bregas" target="_blank">
+                        <header class="panel-heading">
+                          <h3 class="panel-title">Cesc Fabregas<span class="badge rankBadge rank-success">Agility</span></h3>
+                          </header>
+                          <div class="preview">
+                            <img class="img-circle featureimg" alt="Cesc Fàbregas" title="Cesc Fàbregas" src="includes/img/Fabregas.jpg">
+                          </div>
+                          <p><strong>Cesc Fabregas</strong> has broke several of the club's records in his Journey of greatnesss.</p>
+                        </a>
+                      </section><!--end of Section-->
+                    </article><!--end of article-->
+                    <article class="col-lg-4 feature article"><!--article div starts-->
+                      <section class="panel"><!--panel div starts-->
+                        <a href="https://en.wikipedia.org/wiki/Pedro_(footballer,_born_July_1987)" target="_blank">
+                          <header class="panel-heading">
+                            <h3 class="panel-title">Pedro<span class="badge rankBadge rank-success">All-Rounder</span></h3>
+                            </header>
+                            <div class="preview">
+                              <img class="featureimg img-circle" alt="Pedro" title="Pedro" src="includes/img/Pedro.jpg">
+                            </div>
+                            <p><strong>Pedro</strong> is a Spanish professional footballer who plays as a forward or a winger.</p>
+                          </a>
+                        </section><!--end of Section-->
+                      </article><!--end of article-->
 
-          <article class="col-sm-4 feature article">
-            <section class="panel">
-              <a href="https://en.wikipedia.org/wiki/Gary_Cahill" target="_blank">
-                <header class="panel-heading">
-                  <h3 class="panel-title">Cahill</h3>
-                </header>
-                <div class="preview">
-                  <img class="featureimg img-circle" alt="Cahill" title="Cahill" src="img/Cahill.jpg">
-                </div>
-                <p><strong>Cahill</strong>  is known for his technical ability, powerful heading in defence and attack.</p>
-              </a>
-            </section>
-          </article>
-        </div>
-      </div>
+                      <article class="col-lg-4 feature article"><!--article div starts-->
+                        <section class="panel"><!--panel div starts-->
+                          <a href="https://en.wikipedia.org/wiki/Gary_Cahill" target="_blank">
+                            <header class="panel-heading">
+                              <h3 class="panel-title">Cahill<span class="badge rankBadge rank-success">Defender</span></h3>
+                              </header>
+                              <div class="preview">
+                                <img class="featureimg img-circle" alt="Cahill" title="Cahill" src="includes/img/Cahill.jpg">
+                              </div>
+                              <p><strong>Cahill</strong>  is known for his technical ability, powerful heading in defence and attack.</p>
+                            </a>
+                          </section><!--end of Section-->
+                        </article><!--end of article-->
+                      </div>
+                    </div>
 
-      <nav>
-        <ul class="pager">
-          <li><a href="Home.html">Previous</a></li>
-          <li><a href="Portfolio.html">Next</a></li>
-        </ul>
-      </nav>
+                    <nav><!--Pager nav starts-->
+                      <ul class="pager">
+                        <li><a href="Home.html">Previous</a></li>
+                        <li class="disabled"><a href="Portfolio.html">Next</a></li>
+                      </ul>
+                    </nav><!-- end og pager -->
 
-      <footer>
-        <div class="container" id="footerContainer">
-          <div class="row" id="footerRow">
-            <div class="col-sm-2">
-              <h6>Copyright &copy; 2013 Chelsea FC</h6>
-            </div><!-- end col-sm-2 -->
+                    <footer><!-- start of footer -->
+                      <div class="container" id="footerContainer">
+                        <div class="row" id="footerRow">
+                          <div class="col-sm-2">
+                            <h6>Copyright &copy; 2013 Chelsea FC</h6>
+                          </div><!-- end col-sm-2 -->
 
-            <div class="col-sm-4">
-              <h6>About Us</h6>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div><!-- end col-sm-4 -->
-            <ul>
-              <li><a href="https://www.facebook.com/ChelseaFC/" target="_blank"><img alt="facebook" src='img/facebook_icon.png' /></a></li>
-              <li><a href="https://twitter.com/ChelseaFC" target="_blank"><img alt="Twitter" src='img/twitter.png' /></a></li>
-              <li><a href="https://www.youtube.com/user/chelseafc" target="_blank"><img alt="Youtube" src='img/youtube.png' /></a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </body>
-  </html>
+                          <div class="col-lg-4">
+                            <h6>About Us</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                          </div><!-- end col-lg-4 -->
+                          <ul><!--social media links-->
+                            <li><a href="https://www.facebook.com/ChelseaFC/" target="_blank"><img alt="facebook" src='includes/img/facebook_icon.png' /></a></li>
+                            <li><a href="https://twitter.com/ChelseaFC" target="_blank"><img alt="Twitter" src='includes/img/twitter.png' /></a></li>
+                            <li><a href="https://www.youtube.com/user/chelseafc" target="_blank"><img alt="Youtube" src='includes/img/youtube.png' /></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </footer><!-- end of footer -->
+                  </div>
+                </body>
+                </html>
