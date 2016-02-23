@@ -1,13 +1,35 @@
+function convertToJSON(data){
+  var strDelimiter = ",";
+  strDelimiter = (strDelimiter || ",");
+  var objPattern = new RegExp(("(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+  "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+  "([^\"\\" + strDelimiter + "\\r\\n]*))"), "gi");
+  var arrData = [[]], arrMatches = null;
+  while (arrMatches = objPattern.exec(data)) {
+    var strMatchedDelimiter = arrMatches[1];
+    if (strMatchedDelimiter.length && (strMatchedDelimiter != strDelimiter)) {
+      arrData.push([]);
+    }
+    if (arrMatches[2]) {
+      var strMatchedValue = arrMatches[2].replace(
+        new RegExp("\"\"", "g"), "\"");
+      } else {
+        var strMatchedValue = arrMatches[3];
+      }
+      arrData[arrData.length - 1].push(strMatchedValue);
+    };
+    return (arrData);
+  }
+
+
 function csvToJSON()
 {
   var fs = require('fs');
 
   fs.readFile('agriculture.csv', 'utf8', function (err,data) {
-    var array = convertToJSON(data);
-    var singleYearProduction = [];
-
-    // Keys to Fetch Paticular Year Data
-    var singleYearProductionKeys = ['Foodgrains','Oilseeds','rice'];
+    var array = convertToJSON(data) , singleYearProduction = [],
+       // Keys to Fetch Particular Year Data
+        singleYearProductionKeys = ['Foodgrains', 'Oilseeds', 'rice'];
     for (var i = 1 ; i < array.length; i++) {
       for(var y = 0; y < singleYearProductionKeys.length; y++)
       {
@@ -40,7 +62,7 @@ function csvToJSON()
           {
             var key = array[0][z];
             allYearProduction[i][key] = array[i][z] == "NA" ? parseInt(0) : array[i][z];
-            if(y > 0 && Number.isInteger(parseInt(array[i][z])))
+            if(allYearProductionKeys[y] != 'Commercial' && Number.isInteger(parseInt(array[i][z])))
             {
                 allYearProduction[0][key] += parseInt(allYearProduction[i][key]);
             }
@@ -53,35 +75,22 @@ function csvToJSON()
     allYearProduction = allYearProduction.filter(function(e){return e});
     singleYearProduction = singleYearProduction.filter(function(e){return e});
 
+
+    //seggregate between Super Sets and Sub Sets
+    for(i=0; i < singleYearProduction.length ; i++){
+      for(j=i+1 ; j < singleYearProduction.length ; j++)
+      {
+        if(!singleYearProduction[i]["isSuperSet"] || singleYearProduction[i]["isSuperSet"] == undefined)
+            singleYearProduction[i]["isSuperSet"] = singleYearProduction[j]['Particulars'].indexOf(singleYearProduction[i]['Particulars']) > -1 ? true : false;
+      }
+    }
+
     fs.writeFile("singleYearProduction.json", JSON.stringify(singleYearProduction));
     fs.writeFile("allYearProduction.json" , JSON.stringify(allYearProduction));
 
   });
 }
 
-function convertToJSON(data){
-  var strDelimiter = ",";
-  strDelimiter = (strDelimiter || ",");
-  var objPattern = new RegExp(("(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
-  "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
-  "([^\"\\" + strDelimiter + "\\r\\n]*))"), "gi");
-  var arrData = [[]];
-  var arrMatches = null;
-  while (arrMatches = objPattern.exec(data)) {
-    var strMatchedDelimiter = arrMatches[1];
-    if (strMatchedDelimiter.length && (strMatchedDelimiter != strDelimiter)) {
-      arrData.push([]);
-    }
-    if (arrMatches[2]) {
-      var strMatchedValue = arrMatches[2].replace(
-        new RegExp("\"\"", "g"), "\"");
-      } else {
-        var strMatchedValue = arrMatches[3];
-      }
-      arrData[arrData.length - 1].push(strMatchedValue);
-    };
-    return (arrData);
-  }
 
   function initializeFirstRecord(allYearProduction , array){
     allYearProduction[0] ={};
