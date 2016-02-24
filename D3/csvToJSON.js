@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 function convertToJSON(data){
   var strDelimiter = ",";
   strDelimiter = (strDelimiter || ",");
@@ -10,101 +12,139 @@ function convertToJSON(data){
     if (strMatchedDelimiter.length && (strMatchedDelimiter != strDelimiter)) {
       arrData.push([]);
     }
+    var strMatchedValue ="";
     if (arrMatches[2]) {
-      var strMatchedValue = arrMatches[2].replace(
-        new RegExp("\"\"", "g"), "\"");
-      } else {
-        var strMatchedValue = arrMatches[3];
-      }
-      arrData[arrData.length - 1].push(strMatchedValue);
-    };
-    return (arrData);
+      strMatchedValue = arrMatches[2].replace(new RegExp("\"\"", "g"), "\"");
+    }
+    else {
+      strMatchedValue = arrMatches[3];
+    }
+    arrData[arrData.length - 1].push(strMatchedValue);
+  };
+  return (arrData);
+}
+
+function initializeFirstRecord(allYearProduction , array){
+  allYearProduction[0] ={};
+  for(z = 0 ; z < array[0].length; z++)
+  {
+    var key = array[0][z];
+    if(key.indexOf(' 3-') > -1){
+      allYearProduction[0][key] = parseInt(0);
+    }
+    else {
+      allYearProduction[0][key] = 'Commercial Crops Aggregate';
+    }
   }
+}
 
 
 function csvToJSON()
 {
-  var fs = require('fs');
-
   fs.readFile('agriculture.csv', 'utf8', function (err,data) {
-    var array = convertToJSON(data) , singleYearProduction = [],
-       // Keys to Fetch Particular Year Data
-        singleYearProductionKeys = ['Foodgrains', 'Oilseeds', 'rice'];
-    for (var i = 1 ; i < array.length; i++) {
-      for(var y = 0; y < singleYearProductionKeys.length; y++)
-      {
-        if(array[i][0].indexOf(singleYearProductionKeys[y]) > -1)
-        {
-          singleYearProduction[i-1] = {};
-          var requiredColumns =['Particulars' , ' 3-2013'];
-          for(z = 0 ; z < requiredColumns.length ; z++)
+    var array = convertToJSON(data) ,
+    // Keys to Fetch Particular Year Data
+    singleYearProductionKeys = ['Foodgrains', 'Oilseeds'];
+    for(var y = 0; y < singleYearProductionKeys.length; y++)
+    {
+      var singleYearProduction = [];
+      for (var i = 1 ; i < array.length; i++) {
+        var index = array[i][0].indexOf(singleYearProductionKeys[y]);
+        if(( index > -1
+          &&  index == array[i][0].lastIndexOf(singleYearProductionKeys[y]))
+          && (array[i][0].indexOf('Kharif') > -1 || array[i][0].indexOf('Rabi') >-1) && array[i][0].indexOf('Area') == -1)
           {
-            var keyIndex = array[0].indexOf(requiredColumns[z]);
-            singleYearProduction[i-1][requiredColumns[z]] = array[i][keyIndex] == "NA" ? 0 : array[i][keyIndex];
+            singleYearProduction[i-1] = {"x" : array[i][array[0].indexOf('Particulars')] , "y" : 0};
+            singleYearProduction[i-1].y = array[i][array[0].indexOf(' 3-2013')] == "NA" ?
+            0 : parseInt(array[i][array[0].indexOf(' 3-2013')]) ;
           }
         }
+        singleYearProduction = singleYearProduction.filter(function(e){return e});
+        writeJSONFile(singleYearProduction,singleYearProductionKeys[y]); // writing the stringified JSOn to file
       }
-    }
 
-    var allYearProduction =[];
-    var allYearProductionKeys = ['Commercial','Rice Yield Andhra Pradesh' , 'Rice Yield Kerala' , 'Rice Yield Tamil Nadu' , 'Rice Yield Karnataka'];
 
-    initializeFirstRecord(allYearProduction , array);
+      // extract commercial crop production data
+      var commercialCropProduction = [];
+      var commercialCropProductionKeys = ['Commercial'];
+      initializeFirstRecord(commercialCropProduction , array);
+      for(var y = 0; y < commercialCropProductionKeys.length; y++)
+      {
+        for (var i = 0 ; i < array.length; i++)
+        {
+          if(array[i][0].indexOf(commercialCropProductionKeys[y]) > -1)
+          {
+            for(z = 0 ; z < array[0].length && z < array[i].length ; z++)
+            {
+              var key = array[0][z];
+              commercialCropProduction[0][key] += array[i][z] == "NA"  ? 0 : isNaN(Number(array[i][z])) ? "" : Number(array[i][z]);
+            }
+          }
+        }
+        commercialCropProduction = commercialCropProduction.filter(function(e){return e});
+        writeJSONFile(commercialCropProduction ,"Commercial");
+      }
 
-    for (var i = 0 ; i < array.length; i++)
-    {
+
+      var allYearProduction =[];
+      var allYearProductionKeys = ['Rice Yield Andhra Pradesh' , 'Rice Yield Kerala' , 'Rice Yield Tamil Nadu' , 'Rice Yield Karnataka'];
+
       for(var y = 0; y < allYearProductionKeys.length; y++)
       {
-        if(array[i][0].indexOf(allYearProductionKeys[y]) > -1)
+        for (var i = 0 ; i < array.length; i++)
         {
-          allYearProduction[i] = {};
-          for(z = 0 ; z < array[0].length && z < array[i].length ; z++)
+          if(array[i][0].indexOf(allYearProductionKeys[y]) > -1)
           {
-            var key = array[0][z];
-            allYearProduction[i][key] = array[i][z] == "NA" ? parseInt(0) : array[i][z];
-            if(allYearProductionKeys[y] != 'Commercial' && Number.isInteger(parseInt(array[i][z])))
+            allYearProduction[i] = {};
+            for(z = 0 ; z < array[0].length && z < array[i].length ; z++)
             {
-                allYearProduction[0][key] += parseInt(allYearProduction[i][key]);
+              var key = array[0][z];
+              allYearProduction[i][key] = array[i][z] == "NA" ? parseInt(0) : array[i][z];
             }
           }
         }
       }
-    }
 
+      //calculating yearly Production of states
+      var yearlyProductionAggregate =[];
+      allYearProduction = allYearProduction.filter(function(e){return e});
+      var lookupTable =["Tamil Nadu","Karnataka","Kerala","Andhra"]
+      for (var z = 3; z < array[0].length; z++)
+      {
+        var key = array[0][z];
+        yearlyProductionAggregate[z-3] = {Year : key.toString().trim(), TN : 0 , KA : 0 , KE : 0 , AP : 0};
+        for (var i = 0; i < allYearProduction.length; i++)
+        {
+          if(allYearProduction[i]["Particulars"].indexOf(lookupTable[0]) > -1)
+          {
+            yearlyProductionAggregate[z-3].TN = allYearProduction[i][key];
+          }
+
+          if(allYearProduction[i]["Particulars"].indexOf(lookupTable[1]) > -1)
+          {
+            yearlyProductionAggregate[z-3].KA = allYearProduction[i][key];
+          }
+
+          if(allYearProduction[i]["Particulars"].indexOf(lookupTable[2]) > -1)
+          {
+            yearlyProductionAggregate[z-3].KE = allYearProduction[i][key];
+          }
+
+          if(allYearProduction[i]["Particulars"].indexOf(lookupTable[3]) > -1)
+          {
+            yearlyProductionAggregate[z-3].AP = allYearProduction[i][key];
+          }
+        }
+      }
+      writeJSONFile(yearlyProductionAggregate ,"South_Indian_States_Aggregate");
+    });
+  }
+
+  function writeJSONFile(jsonObject,filename)
+  {
     // remove empty values from the JSON Array
-    allYearProduction = allYearProduction.filter(function(e){return e});
-    singleYearProduction = singleYearProduction.filter(function(e){return e});
-
-
-    //seggregate between Super Sets and Sub Sets
-    for(i=0; i < singleYearProduction.length ; i++){
-      for(j=i+1 ; j < singleYearProduction.length ; j++)
-      {
-        if(!singleYearProduction[i]["isSuperSet"] || singleYearProduction[i]["isSuperSet"] == undefined)
-            singleYearProduction[i]["isSuperSet"] = singleYearProduction[j]['Particulars'].indexOf(singleYearProduction[i]['Particulars']) > -1 ? true : false;
-      }
-    }
-
-    fs.writeFile("singleYearProduction.json", JSON.stringify(singleYearProduction));
-    fs.writeFile("allYearProduction.json" , JSON.stringify(allYearProduction));
-
-  });
-}
-
-
-  function initializeFirstRecord(allYearProduction , array){
-    allYearProduction[0] ={};
-    for(z = 0 ; z < array[0].length; z++)
-    {
-      var key = array[0][z];
-      if(key.indexOf(' 3-') > -1)
-      {
-        allYearProduction[0][key] = parseInt(0);
-      }
-      else {
-        allYearProduction[0][key] = 'Rice Yield Aggregate';
-      }
-    }
+    jsonObject = jsonObject.filter(function(e){return e});
+    fs.writeFile(filename + ".json", JSON.stringify(jsonObject));
   }
 
   csvToJSON();
