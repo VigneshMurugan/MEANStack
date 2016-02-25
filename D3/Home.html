@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+<head>
+  <!-- links -->
+  <link rel="stylesheet" href="lib/css/bootstrap.css"/>
+  <link rel="stylesheet" href="lib/css/bootstrap-glyphicons.css"/>
+  <link rel="stylesheet" href="includes/css/style.css"/>
+  <link rel="icon" href="includes/img/favicon.ico"/>
+
+  <!-- end of links -->
+
+  <!-- script -->
+  <script src="lib/js/jquery-1.12.0.min.js"></script>
+  <script src="includes/js/script.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
+  <!--end of script -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- title -->
+  <title>Chelsea Fan Site | Keep the Blue flag Flying</title>
+
+
+</head><!--end of head-->
+<body>
+  <div class="container" id="main_container">
+    <!-- navigation bar -->
+    <nav class="navbar navbar-fixed-top" id ="navigationBar" role="navigation">
+
+      <!-- burger-menu is used as the toggle for collapsed navbar content -->
+      <button id="burger-menu" class="navbar-toggle" data-target="#nav_container" data-toggle="collapse" type="button">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <!-- logo container -->
+      <div class="navbar-header" id="logo_container">
+        <a class="navbar-brand" href="http://www.chelseafc.com" target="_blank">
+          <img class="img-responsive pull-left" src="includes/img/cfc_main_logo.png" alt="Chelsea"/>
+        </a>
+      </div>
+      <!-- end of logo container  -->
+      <!--navigation Bar Links  -->
+      <div class="navbar-collapse collapse navbar-responsive-collapse" id="nav_container">
+        <ul class="nav navbar-nav navbar-items">
+          <li class="active">
+            <a class="navigationBarLink" href="#">About</a>
+          </li>
+          <li class="dropdown">
+            <a class="navigationBarLink" href="#" class="dropdown-toggle" data-toggle="dropdown">Players<span class="caret"></span></a>
+            <ul class="dropdown-menu navbar-items-dropDown">
+              <li><a class="navigationBarLink" href="Portfolio.html">Player Details</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="navbar-form pull-left navbar-items">
+          <input type="text" class="form-control pull-left" placeholder="Search the Site" id="searchInput"/>
+          <button class="btn btn-default" id="searchButton"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+
+      </div>
+    </nav>
+    <!-- end of navigation Bar Links-->
+    <!-- end of Navigation Bar -->
+
+    <!--carousel slide-->
+    <div class="carousel slide carouselSlider" id="default_carousel" data-ride="carousel">
+      <h1>Top Photos of the Week</h1>
+      <ol class="carousel-indicators">
+        <li class="active" data-slide-to="0" data-target="#default_carousel"></li>
+        <li data-slide-to="1" data-target="#default_carousel"></li>
+        <li data-slide-to="2" data-target="#default_carousel"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="item active" id="slide1">
+          <div class="carousel-caption" id="caption1">
+            <h4>Blue Devils</h4>
+          </div>
+          <img id="carousel_img_1" class="img-responsive carouselslide"/>
+        </div>
+
+        <div class="item" id="slide2">
+          <div class="carousel-caption">
+            <h4>Hazardous</h4>
+          </div>
+          <img id="carousel_img_2" class="img-responsive carouselslide"/>
+        </div>
+
+        <div class="item" id="slide3">
+          <div class="carousel-caption">
+            <h4>Making Every Move Count</h4>
+          </div>
+          <img id="carousel_img_3" class="img-responsive carouselslide"/>
+        </div>
+      </div>
+
+      <a class="left carousel-control" data-slide="prev" href="#default_carousel"><span class="icon-prev"></span></a>
+      <a class="right carousel-control" data-slide="next" href="#default_carousel"><span class="icon-next"></span></a>
+
+    </div>
+    <!-- end of carousel  -->
+    <!--feauture row-->
+    <div class="row" id="callButton">
+
+      <div class="col-md-12">
+
+        <div class="well visible-xs well-small">
+          <a class="btn btn-large btn-default btn-block"><span class="glyphicon glyphicon-phone"></span>Call Us To Know more !</a>
+        </div>
+
+        <div class="well" id="heading">
+          <div class="page-header" id="alertMe">
+            <h2> The Blue Army <small> Blue Flag always Fly High</small></h2>
+          </div><!-- end page-header -->
+
+          <p  class="lead"><em>Chelsea Football Club</em> are a professional football club based in Fulham, London, who compete in the Premier League. Founded in 1905, the club's home ground since then has been Stamford Bridge</p>
+        </div><!-- end well -->
+
+      </div>
+    </div>
+    <!--end of row -->
+
+    <!--moreInfo-->
+
+    <div class="row" id="features">
+      <article class="col-lg-4 feature article">
+        <section class="panel"><!--feature panel-->
+          <header class="panel-heading"><!--panel heading-->
+            <h3 class="panel-title"> Club History </h3>
+          </header><!--header end-->
+          <div class="carousel slide" data-ride="carousel" data-interval=4500>
+
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-circle featureimg" alt="Destined Champions" src="includes/img/club_history_carusel_1.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Modernly Traditional" src="includes/img/club_history_carusel_2.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Winning Hearts and Trophies" src="includes/img/club_history_carusel_3.jpg"/>
+              </div>
+            </div>
+            <div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ipsum quasi asperiores et distinctio placeat quam deserunt dolores obcaecati recusandae expedita delectus ullam assumenda molestias quos doloribus, minima, alias illum.</p>
+              <a href="https://en.wikipedia.org/wiki/Chelsea_F.C#History" target="_blank" class="btn btn-warning btn-block">Club history</a>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <article class="col-lg-4 feature article">
+        <section class="panel"><!--feature panel-->
+          <header class="panel-heading"><!--panel heading-->
+            <h3 class="panel-title"> Squad </h3>
+          </header><!--header end-->
+          <div class="carousel slide" data-ride="carousel" data-interval=3000>
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-circle featureimg" alt="Destined Champions" src="includes/img/squad_carousel_1.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Modernly Traditional" src="includes/img/squad_carousel_2.jpg"/>
+              </div>
+
+              <div class="item">
+                <img class="img-circle featureimg" alt="Winning Hearts and Trophies" src="includes/img/squad_carousel_3.jpg"/>
+              </div>
+            </div>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ipsum quasi asperiores et distinctio placeat quam deserunt dolores obcaecati recusandae expedita delectus ullam assumenda molestias quos doloribus, minima, alias illum.</p>
+          <a href="https://en.wikipedia.org/wiki/Chelsea_F.C#Players" target="_blank" class="btn btn-warning btn-block">Squad</a>
+        </section>
+      </article>
+
+      <article class="col-lg-4 feature article">
+        <section class="panel"><!--feature panel-->
+          <header class="panel-heading"><!--panel heading-->
+            <h3 class="panel-title"> Club Mechandise </h3>
+          </header><!--header end-->
+          <div class="item">
+            <img class="img-circle featureimg" alt="Merchandise" title="Click to know about the Current Squad" src="includes/img/club_merchandise_1.jpg">
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ipsum quasi asperiores et distinctio placeat quam deserunt dolores obcaecati recusandae expedita delectus ullam assumenda molestias quos doloribus, minima, alias illum.</p>
+          <a href="http://www.chelseamegastoreasia.com" target="_blank" class="btn btn-warning btn-block">Store</a>
+        </section>
+      </article>
+    </div>
+    <!-- end of moreInfo -->
+
+    <!--end of Location Details-->
+    <div class="row" id="info">
+      <div class="col-sm-8">
+        <h3> Location Details </h3>
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle=tab>Contact address</a></li>
+            <li><a href="#tab2" data-toggle=tab>Map View</a></li>
+          </ul>
+          <div class="tab-content">
+            <tab class="tab-pane active" id=tab1>
+              <h3><span class="glyphicon glyphicon-map-marker"></span>Contact Us <small> We are always for you </small></h3>
+              <img src="includes/img/Chelease_front_view.jpg" class="thumbnail pull-left img-responsive" alt="Placeholder image">
+              <p translate="no">
+                Fulham Rd,<br>
+                London SW6 1HS,<br>
+                <abbr title="United Kingdom">UK</abbr></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laboriosam pariatur blanditiis consequatur aliquam velit temporibus vero nam, modi repellat delectus consectetur numquam doloremque tenetur reiciendis fugit accusamus aperiam distinctio!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, esse. Cupiditate iste ratione perferendis nam id accusantium, laudantium adipisci. Ut cupiditate assumenda sint, omnis rem ipsam tempore, quis debitis explicabo.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatibus incidunt aperiam magni impedit velit iste distinctio cupiditate, excepturi repudiandae rerum facilis adipisci accusantium, culpa, libero cum consectetur animi placeat.</p>
+                <a href="#myModal" role="button" class="btn btn-warning" data-toggle="modal"><span class="glyphicon glyphicon-hand-up"></span>Send your Comments</a>
+                <div class="modal fade" id="myModal">
+                  <div class="modal-dialog">
+                    <header class="modal-header">
+                      <h4>Fan Details<h4>
+                      </header><!--header end-->
+                      <content class="modal-body">
+                        <form class="form-horizontal"><!--modal form starts-->
+                          <div class="form-group"><!--form group-->
+                            <label class="col-lg-2 control-label modallabel" for="name">Name</label>
+                            <div class="col-lg-10">
+                              <input id="name" type="text" placeholder="Enter your Name"/>
+                            </div>
+                          </div>
+                          <div class="form-group"><!--form group-->
+                            <label class="col-lg-2 control-label modallabel" for="emailId">E-Mail</label>
+                            <div class="col-lg-10">
+                              <input id="emailId" type="email" class="email" placeholder="Enter your E-Mail Address"/>
+                            </div>
+                          </div>
+                          <div class="form-group"><!--form group-->
+                            <label class="col-lg-2 control-label modallabel" id=commentLabel>Comments</label>
+                            <div class="col-lg-10">
+                              <textarea class="form-control" id="inputMessage" placeholder="Your Comment goes here" rows="3"></textarea>
+                            </div>
+                          </div>
+                        </form>
+                      </content>
+                      <div class="modal-footer"><!-- footer starts-->
+                        <a class="btn btn-danger" data-toggle="popover" data-original-title="E-mail ID" data-content="Mail ID : chelseafc@chelsea.uk" data-placements="top" href="#">Click Here to know the Mail-ID</a>
+                        <button class="btn btn-default" data-original-title="Close this Window" rel="tooltip" data-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary" data-original-title="Send the Comment To Chelsea" rel="tooltip" type="button" data-dismiss="modal" data-toggle="modal" data-target="#commentsubmit">Send</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="commentsubmit">
+                    <div class="modal-dialog">
+                      <content class="modal-body">
+                        <h4 id="Comment"> Comment Submitted </h4>
+                      </content>
+                      <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </tab>
+                <map class="tab-pane img-responsive" id=tab2>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.719310510044!2d-0.1931451847385944!3d51.48166632040614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760f864b976f3d%3A0x48aa38781ea565f8!2sStamford+Bridge!5e0!3m2!1sen!2s!4v1455698724310" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </map>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <h3>Down the Memory Lane</h3>
+            <p>Chelsea has always been involved in Various Club Competitions. Please follow this Section in order to view some Nostalgic, Legendary memories of Our Club</p>
+            <div class="list-group">
+              <a href="#" class="list-group-item" id="stunningGoals"><!--list group member-->
+                <h4 class="list-group-item-heading">Stunning Goals</h4>
+              </a>
+              <a href="#" class="list-group-item" id="winningmoments"><!--list group member-->
+                <h4 class="list-group-item-heading">Winning Moments</h4>
+              </a>
+              <a href="#" class="list-group-item" id="chelseaLife"><!--list group member-->
+                <h4 class="list-group-item-heading">Life At Chelsea</h4>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <article class="col-lg-6">
+            <h4> Season Stats </h4>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                25/38 Matches Played
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                10/25 Matches Won
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                10/25 Matches Lost
+              </div>
+            </div>
+          </article>
+
+          <article class="col-lg-6">
+            <h4> Championship Stats </h4>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                1 / 5 UEFA Champions League Won
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                3 / 10 BPL Titles
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                5 - FA Cups , Capital One Cup
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <nav><!--Pager nav starts-->
+          <ul class="pager">
+            <li class="disabled"><a href="Home.html">Previous</a></li>
+            <li><a href="Portfolio.html">Next</a></li>
+          </ul>
+        </nav><!-- end og pager -->
+
+        <footer><!-- start of footer -->
+          <div class="container" id="footerContainer">
+            <div class="row" id="footerRow">
+              <div class="col-sm-2">
+                <h6>Copyright &copy; 2013 Chelsea FC</h6>
+              </div><!-- end col-sm-2 -->
+
+              <div class="col-lg-4">
+                <h6>About Us</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div><!-- end col-lg-4 -->
+              <ul><!--social media links-->
+                <li><a href="https://www.facebook.com/ChelseaFC/" target="_blank"><img alt="facebook" src='includes/img/facebook_icon.png' /></a></li>
+                <li><a href="https://twitter.com/ChelseaFC" target="_blank"><img alt="Twitter" src='includes/img/twitter.png' /></a></li>
+                <li><a href="https://www.youtube.com/user/chelseafc" target="_blank"><img alt="Youtube" src='includes/img/youtube.png' /></a></li>
+              </ul>
+            </div>
+          </div>
+        </footer><!-- end of footer -->
+      </body>
+      </html>
