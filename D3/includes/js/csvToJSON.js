@@ -77,7 +77,7 @@ function processSingleYearProductionData(jsonObject,substringKey){
   removeSuperSets(jsonObject , substringKey); //identify Cumulative data from the array
   jsonObject = jsonObject.filter(function(e){return e.isSuperSet == undefined});//remove Cumulative data from the array
   jsonObject = jsonObject.filter(removeEntriesByKeywords); // Remove unwanted entries using Keywords
-  sortByKey(jsonObject,"y");
+  jsonObject = sortByKey(jsonObject,"y").reverse();
   return jsonObject;
 }
 
@@ -98,15 +98,15 @@ function csvToJSON()
     }
 
     commercialCropProduction = initializeCommercialRecord(array,firstYearIndex,lastYearIndex);
-    commercialCropProduction = commercialCropProduction.filter(function(e){ return e});
+    commercialCropProduction = commercialCropProduction.filter(function(e){ return e});//remove empty values
     for (var i = 1 ; i < array.length; i++)
     {
       if(array[i][0].indexOf(keywordLookupTable[0]) > -1 &&  array[i][0].indexOf(keywordLookupTable[0]) == array[i][0].lastIndexOf(keywordLookupTable[0])){
-        foodGrainsProduction = fillSingleYearProductionData(foodGrainsProduction,array[i],particularsIndex,productionIndex,columnRenameLookupTable[0]);
+        foodGrainsProduction = fillSingleYearProductionData(foodGrainsProduction,array[i],particularsIndex,productionIndex,columnRenameLookupTable[0]);//fill up the array with values
       }
 
       else if(array[i][0].indexOf(keywordLookupTable[1]) > -1 &&  array[i][0].indexOf(keywordLookupTable[1]) == array[i][0].lastIndexOf(keywordLookupTable[1])){
-        oilSeedsProduction = fillSingleYearProductionData(oilSeedsProduction,array[i],particularsIndex,productionIndex,columnRenameLookupTable[1]);
+        oilSeedsProduction = fillSingleYearProductionData(oilSeedsProduction,array[i],particularsIndex,productionIndex,columnRenameLookupTable[1]);//fill up the array with values
       }
 
       else if(array[i][0].indexOf(keywordLookupTable[2]) > -1){
@@ -116,6 +116,7 @@ function csvToJSON()
         }
       }
 
+      // get the Key for filling up Yearly Production Data
       var keyToFill = array[i][0].indexOf(keywordLookupTable[3]) > -1
                         ? "AP" : array[i][0].indexOf(keywordLookupTable[4]) > -1
                           ? "KE" : array[i][0].indexOf(keywordLookupTable[5]) > -1
@@ -129,6 +130,8 @@ function csvToJSON()
           yearlyProductionAggregate[z][keyToFill] = array[i][z+firstYearIndex] == "NA" ? 0 : parseFloat(array[i][z+firstYearIndex]);
         }
       }
+
+      //remove unwanted elements from the array
       foodGrainsProduction = processSingleYearProductionData(foodGrainsProduction,columnRenameLookupTable[0]);
       oilSeedsProduction = processSingleYearProductionData(oilSeedsProduction,columnRenameLookupTable[1]);
     }

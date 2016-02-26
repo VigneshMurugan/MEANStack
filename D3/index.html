@@ -5,11 +5,13 @@
   <link rel="stylesheet" href="includes/css/style.css"/>
   <link rel="stylesheet" href="lib/css/bootstrap.css"/>
   <link rel="stylesheet" href="lib/css/bootstrap-glyphicons.css"/>
-    <link rel="icon" href="includes/img/favicon.ico"/>
+  <link rel="icon" href="includes/img/favicon.ico"/>
   <script src="lib/js/jquery-1.12.0.min.js"></script>
   <script src="lib/js/bootstrap.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="includes/js/agricultureChartPlot.js"></script>
   <!-- end of links -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -19,38 +21,34 @@
 
 
 </head><!--end of head-->
-<body>
+<body onload="stackedChart('tab4','South_Indian_States_Aggregate'); barchartPlot('tab1','FoodGrains','green') ; barchartPlot('tab2','Oilseeds','green') ; commercialPlot()">
   <div class="container" id="main_container">
     <!--end of Location Details-->
-      <div class="col-12">
-        <h3 id="heading">Agriculture Data</h3>
-        <div class="tabbable">
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle=tab>Food Grain Production</a></li>
-            <li><a href="#tab2" data-toggle=tab>Oil Seed Production</a></li>
-            <li><a href="#tab3" data-toggle=tab>Commercial Crop Production</a></li>
-            <li><a href="#tab4" data-toggle=tab>Southern States Production</a></li>
-          </ul>
-          <div class="tab-content">
-            <tab class="tab-pane active" id=tab1>
-              <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
-              <script src="includes/js/foodgrainPlot.js"></script>
-            </tab>
-            <tab class="tab-pane" id=tab2>
-              <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
-              <script src="includes/js/oilSeedPlot.js"></script>
-            </tab>
-            <tab class="tab-pane" id=tab3>
-              <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
-              <script src="includes/js/commercialPlot.js"></script>
-            </tab>
-            <tab class="tab-pane" id=tab4>
-              <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
-              <script src="includes/js/southernStatesProduction.js"></script>
-            </tab>
-          </div>
+    <div class="col-12">
+      <h3 id="heading">Agriculture Data</h3>
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle=tab>Food Grain Production</a></li>
+          <li><a href="#tab2" data-toggle=tab>Oil Seed Production</a></li>
+          <li><a href="#tab3" data-toggle=tab>Commercial Crop Production</a></li>
+          <li><a href="#tab4" data-toggle=tab>Southern States Production</a></li>
+        </ul>
+        <div class="tab-content">
+          <tab class="tab-pane active" id=tab1>
+            <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
+          </tab>
+          <tab class="tab-pane" id=tab2>
+            <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
+          </tab>
+          <tab class="tab-pane" id=tab3>
+            <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
+          </tab>
+          <tab class="tab-pane" id=tab4>
+            <div class="d3-tip" style="position: absolute; opacity: 0;"></div>
+          </tab>
         </div>
       </div>
+    </div>
   </div>
 </body>
 </html>

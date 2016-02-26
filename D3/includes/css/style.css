@@ -29,18 +29,15 @@ body::-webkit-scrollbar-thumb {
   background-color: orange !important;
 }
 .tabbable{
-margin-top:40px;
+margin-top:20px;
 }
-.tab-pane{
-  margin-top:30px;
-}
+
+
 /*Bar color*/
 .oilSeedBar {
   fill: orange;
 }
-.foodgrainBar{
-  fill:green;
-}
+
 .nav-tabs > li > a{
   color: white
 }
@@ -57,9 +54,6 @@ margin-top:40px;
   shape-rendering: none;
 }
 
-svg{
-  margin: 50px 50px;
-}
 text{
   font-family: sans-serif;
   fill: white;
