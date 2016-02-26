@@ -1,165 +1,144 @@
 var fs = require('fs');
+var foodGrainsProduction = [];
+var oilSeedsProduction =[];
+var commercialCropProduction = [];
+var yearlyProductionAggregate = [];
+var keywordLookupTable = ['Foodgrains', 'Oilseeds','Commercial','Rice Yield Andhra Pradesh' , 'Rice Yield Kerala' , 'Rice Yield Tamil Nadu' , 'Rice Yield Karnataka']; //Keys to extract Production Data of Year 2013
+var fgrainsAndOseedsColumnLookupTable = ['Particulars',' 3-2013',' 3-1993',' 3-2014'];
+var columnRenameLookupTable = ["Agricultural Production Foodgrains","Agricultural Production Oilseeds"];
 
-function convertToJSON(data){
-  var strDelimiter = ",";
-  strDelimiter = (strDelimiter || ",");
+function convertCSVToArray(data){
+  var strDelimiter = (strDelimiter || ",");
   var objPattern = new RegExp((/* Delimiters*/   "(\\" + strDelimiter + "|\\r?\\n|\\r|^)"
-                               /*Quoted Text */+ "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|"
-                               /*Normal Text*/ + "([^\"\\" + strDelimiter + "\\r\\n]*))"), "gi");
+  /*Quoted Text */+ "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|"
+  /*Normal Text*/ + "([^\"\\" + strDelimiter + "\\r\\n]*))"), "gi");
   var arrData = [[]], arrMatches = null;
   while (arrMatches = objPattern.exec(data))
   {
     var strMatchedDelimiter = arrMatches[1];
     if (strMatchedDelimiter.length && (strMatchedDelimiter != strDelimiter))
-      arrData.push([]);
+    arrData.push([]);
     var strMatchedValue = arrMatches[2] ? arrMatches[2].replace(new RegExp("\"\"", "g"), "\"") : arrMatches[3];
     arrData[arrData.length - 1].push(strMatchedValue);
   };
   return (arrData);
 }
 
-function initializeFirstRecord(allYearProduction , array){
-  allYearProduction[0] ={};
-  for(z = 0 ; z < array[0].length; z++)
-  {
-    var key = array[0][z];
-    if(key.indexOf(' 3-') > -1){
-      allYearProduction[0][key] = parseInt(0);
-    }
-    else {
-      allYearProduction[0][key] = 'Commercial Crops Aggregate';
-    }
-  }
-}
-
 function removeEntriesByKeywords(jsonObject)
 {
-   return  jsonObject['x'].indexOf('Area') == -1
-        && jsonObject['x'].indexOf('Volume') == -1
-        && jsonObject['x'].indexOf('Yield') == -1
-        && jsonObject['x'].indexOf('Other') == -1
-        && jsonObject['x'].indexOf('Major') == -1
-        && jsonObject['x'].indexOf('Oilseeds Nine') == -1;
+  return   jsonObject['x'].indexOf('Area') == -1
+  && jsonObject['x'].indexOf('Volume') == -1
+  && jsonObject['x'].indexOf('Yield') == -1
+  && jsonObject['x'].indexOf('Other') == -1
+  && jsonObject['x'].indexOf('Major') == -1
+  && jsonObject['x'].indexOf('Oilseeds Nine') == -1;
 }
 
-function removeSuperSets(array)
+function removeSuperSets(jsonObject,stringToAppend)
 {
-  for(i=0; i < array.length ; i++){
-    for(j=i+1 ; j < array.length ; j++){
-          if((array[j]['x'].indexOf(array[i]['x'])) > -1 ){
-              array[i]["isSuperSet"] = true;
-          }
-       }
+  for(i=0; i < jsonObject.length ; i++){
+    for(j=i+1 ; j < jsonObject.length ; j++){
+      var current = stringToAppend + jsonObject[i]['x'] , next = stringToAppend + jsonObject[j]['x'];
+      if(next.indexOf(current) > -1 ){
+        jsonObject[i]["isSuperSet"] = true;
+      }
     }
+  }
+ }
+
+function initializeCommercialRecord(array , firstYearIndex , lastYearIndex){
+  for(z = firstYearIndex ; z <= lastYearIndex; z++)
+  {
+      var key =array[0][z].replace(" 3-","");
+      commercialCropProduction.push({ Year : key , Quantity : 0 })
+  }
+  return commercialCropProduction;
 }
+
+function writeJSONFile(jsonObject,filename)
+{
+  jsonObject = jsonObject.filter(function(e){return e});// remove empty values from the JSON Array
+  fs.writeFile( "../json/" + filename + ".json", JSON.stringify(jsonObject));
+}
+
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+    var x = a[key] , y = b[key];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
+function fillSingleYearProductionData(jsonObject,array,particularsIndex,productionIndex,substringKey){
+  jsonObject.push({ x: array[particularsIndex].replace(substringKey,"") , y : array[productionIndex] == "NA" ? 0 : parseFloat(array[productionIndex])});
+  return jsonObject;
+}
+
+function processSingleYearProductionData(jsonObject,substringKey){
+  removeSuperSets(jsonObject , substringKey); //identify Cumulative data from the array
+  jsonObject = jsonObject.filter(function(e){return e.isSuperSet == undefined});//remove Cumulative data from the array
+  jsonObject = jsonObject.filter(removeEntriesByKeywords); // Remove unwanted entries using Keywords
+  sortByKey(jsonObject,"y");
+  return jsonObject;
+}
+
 
 function csvToJSON()
 {
-  fs.readFile('agriculture.csv', 'utf8', function (err,data) {
-    var array = convertToJSON(data) ,
+  fs.readFile('../../agriculture.csv', 'utf8', function (err,data) {
+    var array = convertCSVToArray(data); //convert CSV Data to Array
     // Keys to Fetch Particular Year Data
-    singleYearProductionKeys = ['Foodgrains', 'Oilseeds'];
-    for(var y = 0; y < singleYearProductionKeys.length; y++)
+    var particularsIndex = array[0].indexOf(fgrainsAndOseedsColumnLookupTable[0]);
+    var productionIndex = array[0].indexOf(fgrainsAndOseedsColumnLookupTable[1]);
+    var firstYearIndex = array[0].indexOf(fgrainsAndOseedsColumnLookupTable[2]);
+    var lastYearIndex = array[0].indexOf(fgrainsAndOseedsColumnLookupTable[3]);
+
+    for (var z = firstYearIndex ; z <= lastYearIndex ; z++)
     {
-      var singleYearProduction = [];
-      for (var i = 1 ; i < array.length; i++) {
-        var index = array[i][0].indexOf(singleYearProductionKeys[y]);
-        if(index > -1 &&  index == array[i][0].lastIndexOf(singleYearProductionKeys[y]))
-          {
-            singleYearProduction[i-1] = {"x" : array[i][array[0].indexOf('Particulars')] , "y" : 0};
-            singleYearProduction[i-1].y = array[i][array[0].indexOf(' 3-2013')] == "NA" ? 0 : parseInt(array[i][array[0].indexOf(' 3-2013')]) ;
-          }
-        }
+      yearlyProductionAggregate.push({Year : array[0][z].toString().replace(" 3-","") , TN : 0 , KA : 0 , KE : 0 , AP : 0}); //initializing the Value with Custom Keys
+    }
 
-        singleYearProduction = singleYearProduction.filter(function(e){return e});
-        removeSuperSets(singleYearProduction);
-        singleYearProduction = singleYearProduction.filter(function(e){return e.isSuperSet == undefined});
-        singleYearProduction = singleYearProduction.filter(removeEntriesByKeywords);
-        writeJSONFile(singleYearProduction,singleYearProductionKeys[y]); // writing the stringified JSOn to file
+    commercialCropProduction = initializeCommercialRecord(array,firstYearIndex,lastYearIndex);
+    commercialCropProduction = commercialCropProduction.filter(function(e){ return e});
+    for (var i = 1 ; i < array.length; i++)
+    {
+      if(array[i][0].indexOf(keywordLookupTable[0]) > -1 &&  array[i][0].indexOf(keywordLookupTable[0]) == array[i][0].lastIndexOf(keywordLookupTable[0])){
+        foodGrainsProduction = fillSingleYearProductionData(foodGrainsProduction,array[i],particularsIndex,productionIndex,columnRenameLookupTable[0]);
       }
 
+      else if(array[i][0].indexOf(keywordLookupTable[1]) > -1 &&  array[i][0].indexOf(keywordLookupTable[1]) == array[i][0].lastIndexOf(keywordLookupTable[1])){
+        oilSeedsProduction = fillSingleYearProductionData(oilSeedsProduction,array[i],particularsIndex,productionIndex,columnRenameLookupTable[1]);
+      }
 
-      // extract commercial crop production data
-      var commercialCropProduction = [];
-      var commercialCropProductionKeys = ['Commercial'];
-      initializeFirstRecord(commercialCropProduction , array);
-      for(var y = 0; y < commercialCropProductionKeys.length; y++)
-      {
-        for (var i = 0 ; i < array.length; i++)
+      else if(array[i][0].indexOf(keywordLookupTable[2]) > -1){
+        for(z = firstYearIndex ; z < lastYearIndex ; z++)
         {
-          if(array[i][0].indexOf(commercialCropProductionKeys[y]) > -1)
-          {
-            for(z = 0 ; z < array[0].length && z < array[i].length ; z++)
-            {
-              var key = array[0][z];
-              commercialCropProduction[0][key] += array[i][z] == "NA"  ? 0 : isNaN(Number(array[i][z])) ? "" : Number(array[i][z]);
-            }
-          }
+            commercialCropProduction[z-firstYearIndex].Quantity += array[i][z] == "NA"  ? 0 : isNaN(Number(array[i][z])) ? "" : parseFloat(array[i][z]);//accumulate data on iteration
         }
-        commercialCropProduction = commercialCropProduction.filter(function(e){return e});
-        writeJSONFile(commercialCropProduction ,"Commercial");
       }
 
+      var keyToFill = array[i][0].indexOf(keywordLookupTable[3]) > -1
+                        ? "AP" : array[i][0].indexOf(keywordLookupTable[4]) > -1
+                          ? "KE" : array[i][0].indexOf(keywordLookupTable[5]) > -1
+                            ? "TN" : array[i][0].indexOf(keywordLookupTable[6]) > -1
+                              ? "KA" : "false" ;
 
-      var allYearProduction =[];
-      var allYearProductionKeys = ['Rice Yield Andhra Pradesh' , 'Rice Yield Kerala' , 'Rice Yield Tamil Nadu' , 'Rice Yield Karnataka'];
-
-      for(var y = 0; y < allYearProductionKeys.length; y++)
+      if (keyToFill != "false")
       {
-        for (var i = 0 ; i < array.length; i++)
+        for (var z = 0 ; z < yearlyProductionAggregate.length ; z++)
         {
-          if(array[i][0].indexOf(allYearProductionKeys[y]) > -1)
-          {
-            allYearProduction[i] = {};
-            for(z = 0 ; z < array[0].length && z < array[i].length ; z++)
-            {
-              var key = array[0][z];
-              allYearProduction[i][key] = array[i][z] == "NA" ? parseInt(0) : array[i][z];
-            }
-          }
+          yearlyProductionAggregate[z][keyToFill] = array[i][z+firstYearIndex] == "NA" ? 0 : parseFloat(array[i][z+firstYearIndex]);
         }
       }
+      foodGrainsProduction = processSingleYearProductionData(foodGrainsProduction,columnRenameLookupTable[0]);
+      oilSeedsProduction = processSingleYearProductionData(oilSeedsProduction,columnRenameLookupTable[1]);
+    }
 
-      //calculating yearly Production of states
-      var yearlyProductionAggregate =[];
-      allYearProduction = allYearProduction.filter(function(e){return e});
-      var lookupTable =["Tamil Nadu","Karnataka","Kerala","Andhra"]
-      for (var z = 3; z < array[0].length; z++)
-      {
-        var key = array[0][z];
-        yearlyProductionAggregate[z-3] = {Year : key.toString().trim(), TN : 0 , KA : 0 , KE : 0 , AP : 0};
-        for (var i = 0; i < allYearProduction.length; i++)
-        {
-          if(allYearProduction[i]["Particulars"].indexOf(lookupTable[0]) > -1)
-          {
-            yearlyProductionAggregate[z-3].TN = allYearProduction[i][key];
-          }
+    // writing the stringified JSON to file
+    writeJSONFile(foodGrainsProduction,keywordLookupTable[0]);
+    writeJSONFile(oilSeedsProduction,keywordLookupTable[1]);
+    writeJSONFile(commercialCropProduction,keywordLookupTable[2]);
+    writeJSONFile(yearlyProductionAggregate,"South_Indian_States_Aggregate");
+  });
+}
 
-          else if(allYearProduction[i]["Particulars"].indexOf(lookupTable[1]) > -1)
-          {
-            yearlyProductionAggregate[z-3].KA = allYearProduction[i][key];
-          }
-
-          else if(allYearProduction[i]["Particulars"].indexOf(lookupTable[2]) > -1)
-          {
-            yearlyProductionAggregate[z-3].KE = allYearProduction[i][key];
-          }
-
-          else if(allYearProduction[i]["Particulars"].indexOf(lookupTable[3]) > -1)
-          {
-            yearlyProductionAggregate[z-3].AP = allYearProduction[i][key];
-          }
-        }
-      }
-      writeJSONFile(yearlyProductionAggregate ,"South_Indian_States_Aggregate");
-    });
-  }
-
-  function writeJSONFile(jsonObject,filename)
-  {
-    // remove empty values from the JSON Array
-    jsonObject = jsonObject.filter(function(e){return e});
-    fs.writeFile(filename + ".json", JSON.stringify(jsonObject));
-  }
-
-  csvToJSON();
+csvToJSON();
